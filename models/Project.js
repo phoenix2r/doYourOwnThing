@@ -13,6 +13,9 @@ const ProjectSchema = new Schema({
   amountSoFar:{
     type: Number
   },
+  purpose: {
+    type: String
+  },
   projectName: {
     type: String,
     required: true

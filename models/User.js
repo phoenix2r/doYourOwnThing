@@ -14,8 +14,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  isPitcher: {
-    type: Boolean,
+  role: {
+    type: String,
     required: true
   },
   date: {
