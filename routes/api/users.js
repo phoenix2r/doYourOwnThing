@@ -13,10 +13,10 @@ const User = require('../../models/User');
 router.post(
   '/', 
   [
-  check('name', 'Name is required').not().isEmpty(),
+  check('username', 'Name is required').not().isEmpty(),
   check('email', 'Please include a valid email').isEmail(),
   check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
-  check('isPitcher', 'Please specify whether you want to pitch or sponsor a project').isBoolean()
+  check('role', 'Please specify whether you want to pitch or sponsor a project').not().isEmpty()
   ], 
   async (req, res) => {
     const errors = validationResult(req);
@@ -24,7 +24,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password, isPitcher } = req.body; 
+    const { username, email, password, role } = req.body; 
 
     
     try {
@@ -37,10 +37,10 @@ router.post(
 
       // Create an instance of the user (not saved yet)
       user = new User({
-        name,
+        username,
         email,
         password,
-        isPitcher
+        role
       });
 
       // Encrypt password (using bcrypt)
