@@ -24,8 +24,8 @@ export const getProjects = () => async dispatch => {
 }
 
 // Create or edit a project
-export const createProject = (formData, edit = false) => async dispatch => {
-  const { projectAuthor, amountReq, purpose, projectName, sector, description, video, gofundme } = formData;
+export const createProject = ({ projectAuthor, amountReq, purpose, projectName, sector, description, video, gofundme }, edit = false) => async dispatch => {
+  // const { projectAuthor, amountReq, purpose, projectName, sector, description, video, gofundme } = formData;
 
   const config = {
     headers: {

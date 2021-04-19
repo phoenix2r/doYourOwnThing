@@ -13,7 +13,7 @@ const Pitcher1 = (props) => {
   const submitStep = e => {
     e.preventDefault();
     if(password !== password2) {
-      props.setAlert('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger');
     } else {
       register({ username, email, password, role });
       nextStep();

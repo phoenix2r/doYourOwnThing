@@ -24,8 +24,8 @@ export const getCurrentProfile = () => async dispatch => {
 }
 
 // Create or update a pitcher's profile
-export const createPitcherProfile = (formData, history, edit = false) => async dispatch => {
-  const { firstName, lastName, addressLine1, town, postcode } = formData;
+export const createPitcherProfile = ({ firstName, lastName, addressLine1, town, postcode }, history, edit = false) => async dispatch => {
+  // const { firstName, lastName, addressLine1, town, postcode } = formData;
 
   const config = {
     headers: {
@@ -45,9 +45,9 @@ export const createPitcherProfile = (formData, history, edit = false) => async d
 
     dispatch(setAlert(edit ? 'Profile updated' : 'Profile created', 'success'));
 
-    if(!edit) {
-      history.pushState('/dashboard');
-    }
+    // if(!edit) {
+    //   history.pushState('/dashboard');
+    // }
   } catch (err) {
 
     const errors = err.response.data.errors;

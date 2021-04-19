@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createPitcherProfile } from '../../../actions/pitcher-profile';
 
 const Pitcher7 = (props) => {
-  const { nextStep, prevStep, handleChange, values, history } = props;
+  const { nextStep, prevStep, handleChange, values, history, createPitcherProfile } = props;
   const { firstName, lastName, addressLine1, town, postcode } = values;
 
   const submitStep = e => {

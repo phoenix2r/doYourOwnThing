@@ -5,22 +5,29 @@ import PropTypes from 'prop-types';
 import { createProject } from '../../../actions/project';
 
 const Pitcher9 = (props, isAuthenticated, history) => {
-  const { onSubmit, nextStep, prevStep, values } = props;
+  const { prevStep, values, createProject, handleChange } = props;
   const { projectAuthor, amountReq, purpose, projectName, sector, description, video, gofundme } = values;
 
   const submitStep = e => {
     e.preventDefault();
     createProject({ projectAuthor, amountReq, purpose, projectName, sector, description, video, gofundme }, history);
     if(isAuthenticated) {
-      return <Redirect to='/dashbaord' />
+      return <Redirect to='/dashboard' />
+    } else {
+      return <Redirect to='/login' />
     }
   }
 
   return (
-    <form action="dashboard.html" className="form p-1">
+    <form className="form p-1">
       <h2 className="form-heading">
-      {values.step}. UPLOAD COMPLETE!
+      {values.step}. UPLOAD COMPLETE! NOW FOR THE FINAL STEP
       </h2>
+      <div className="form-group">
+        <span>In order to receive money for this project you will need your Go Fund Me link.</span>
+        <span>Copy and paste the code for your Go Fund Me widget below</span>
+        <input type="text" placeholder="Go Fund Me" required onChange={handleChange('gofundme')} defaultValue={gofundme} />
+      </div>
       <h2 className="form-heading">
         Click the button to view you pitch:
       </h2>
@@ -36,10 +43,11 @@ const Pitcher9 = (props, isAuthenticated, history) => {
 
 Pitcher9.propTypes = {
   isAuthenticated: PropTypes.bool,
+  createProject: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps)(withRouter(Pitcher9));
+export default connect(mapStateToProps, { createProject })(withRouter(Pitcher9));
