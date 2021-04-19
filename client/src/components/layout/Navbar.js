@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import mainLogo from '../../imgs/Logo.png';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../../actions/auth';
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const authLinks = (
+    <li><a onClick={logout} href="!#">Logout</ a></li>
+  );
+
+  const guestLinks = (
+    <li><Link to="/login">Login to your account</ Link></li>
+  );
+
+
   return (
     <nav className="navbar">
       <h1>
@@ -15,9 +27,9 @@ const Navbar = () => {
         <li><Link to="/pitcher">PITCH</ Link></li>
         <li><Link to="!#">ABOUT</ Link></li>
         {/* <!-- Use for housing icon here --> */}
-        <li><Link to="!#">ForHousing</ Link></li>
+        <li><Link to="/dashboard">DASHBOARD</ Link></li>
         {/* Special button className here */}
-        <li><Link to="/login">Login to your account</ Link></li>
+        { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>) }
         {/* <!-- Search icon here --> */}
         <li><Link to="!#">Search</ Link></li>
       </ul>
@@ -25,4 +37,13 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { logout })(Navbar);

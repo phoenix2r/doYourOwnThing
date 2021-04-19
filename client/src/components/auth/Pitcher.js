@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Pitcher1 from './pitcher/Pitcher1';
 import Pitcher2 from './pitcher/Pitcher2';
 import Pitcher3 from './pitcher/Pitcher3';
@@ -63,32 +62,14 @@ const Pitcher = () => {
     });
   }
 
-  // Final form submit
-  const onSubmit = async e => {
-    const newUser = {
-      username,
-      email,
-      password,
-      role
-    }
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-      const body = JSON.stringify(newUser);
-      const res = await axios.post('/api/users', body, config);
-      console.log(res.data);
-    } catch (err) {
-      console.error(err.response.data);
-    }
-  }
-
-  // Supposed to fill form with data
+  // Handle standard form field changes
   const handleChange = input => e => {
     setFormData({ ...formData, [input]: e.target.value});
-    // console.log(e.target.value);
+  }
+  // Handle select form field changes
+  const handleSelectChange = e => {
+    setFormData({ ...formData, [e.target.name] : e });
+    console.log(e);
   }
 
   // Switch statement to change between steps of the form
@@ -118,7 +99,7 @@ const Pitcher = () => {
           <Pitcher3
             nextStep = {nextStep}
             prevStep = {prevStep}
-            handleChange = {handleChange}
+            handleChange = {handleSelectChange}
             values = {values}
           />
         )
@@ -176,7 +157,7 @@ const Pitcher = () => {
       case 9: 
         return(
           <Pitcher9
-            onSubmit = {onSubmit}
+            // onSubmit = {onSubmit}
             prevStep = {prevStep}
             handleChange = {handleChange}
             values = {values}

@@ -161,7 +161,7 @@
   padding: 0.4rem 1.3rem;
   cursor: pointer;
   font-size: 1.5rem;
-  margin-right: 0.5rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   border-radius: 15px;
   transition: all 0.2s ease-in;
 }
@@ -841,4 +841,174 @@ footer .footer-social {
 
 .sponsor-title-content-outer i {
   color: #fff;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-gap: 1rem;
+}
+
+.dashboard-item {
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.dashboard-img {
+  grid-column: 7 / span 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  z-index: 5;
+  padding: 0;
+  height: 100%;
+}
+
+.dashboard-inner {
+  grid-column: 2 / span 6;
+  grid-row: 2 / span 5;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 1rem;
+}
+
+.dashboard-headline {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.dashboard-projects {
+  grid-column: 1;
+  grid-row: 2;
+  background: #1fc0da;
+}
+
+.dashboard-projects-number {
+  text-align: left;
+}
+
+.dashboard-projects .project-headline {
+  background: #f49800;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 1rem;
+}
+
+.dashboard-projects .project-headline-title {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  text-align: left;
+}
+
+.dashboard-projects .project-headline-totals {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  text-align: left;
+}
+
+.dashboard-projects .project-headline-progress {
+  grid-column: 3 / span 3;
+  grid-row: 1 / span 2;
+}
+
+.dashboard-projects .project-headline-progress p {
+  text-align: right;
+}
+
+.dashboard-projects .project-headline-progress .progress-bar {
+  background: #fff;
+  width: 100%;
+  height: 4vh;
+  padding: 0.2rem;
+}
+
+.dashboard-projects .project-headline-progress .progress-inner {
+  background: #bcce35;
+  width: 30%;
+  height: 100%;
+}
+
+.dashboard-projects .dashboard-social {
+  text-align: right;
+}
+
+.dashboard-title {
+  grid-column: 1 / span 3;
+  grid-row: 5 / span 2;
+  align-self: center;
+  border: 2px solid #fff;
+  background: #f49800;
+}
+
+.dashboard-title .title-content {
+  margin: 0;
+}
+
+.project-page {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-gap: 1rem;
+  background: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.project-page .project-item {
+  padding: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.project-page .project-pitch {
+  grid-column: 1 / span 10;
+  grid-row: 1 / span 6;
+  align-self: center;
+  padding: 0;
+}
+
+.project-page .project-play {
+  grid-column: 5 / span 2;
+  grid-row: 3 / span 2;
+  color: #1fc0da;
+  z-index: 3;
+}
+
+.project-page .project-title {
+  grid-column: 2 / span 3;
+  grid-row: 6 / span 2;
+  align-self: center;
+  border: 2px solid #fff;
+  position: relative;
+}
+
+.project-page .project-title .title-background {
+  content: '';
+  display: block;
+  position: absolute;
+  background: linear-gradient(#1fc0da, #005a84);
+  mix-blend-mode: multiply;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.project-page .project-title .title-content {
+  margin: 0;
+  z-index: 2;
+  color: #fff;
+}
+
+.project-page .project-details {
+  grid-column: 1 / span 5;
+  grid-row: 8 / span 2;
+}
+
+.project-page .project-content {
+  grid-column: 6 / span 5;
+  grid-row: 7 / span 3;
 }

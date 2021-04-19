@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Pitcher9 = (props) => {
+const Pitcher9 = (props, isAuthenticated) => {
   const { onSubmit, nextStep, prevStep, values } = props
 
   const submitStep = e => {
@@ -9,6 +12,9 @@ const Pitcher9 = (props) => {
   }
 
 
+  if(isAuthenticated) {
+    return <Redirect to='/dashbaord' />
+  }
 
   return (
     <form action="dashboard.html" className="form p-1">
@@ -28,4 +34,12 @@ const Pitcher9 = (props) => {
   )
 }
 
-export default Pitcher9
+Pitcher9.propTypes = {
+  isAuthenticated: PropTypes.bool,
+}
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Pitcher9);
