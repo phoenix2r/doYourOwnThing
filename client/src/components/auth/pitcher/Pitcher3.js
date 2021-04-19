@@ -3,7 +3,7 @@ import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 const Pitcher3 = (props) => {
-  const { nextStep, prevStep, handleSelectChange, values } = props
+  const { nextStep, prevStep, handleSelectChange, values, step } = props
 
   const purposeOptions = [
     { value: "equipment", label: "purchase or upgrade equipment" },
@@ -25,7 +25,7 @@ const Pitcher3 = (props) => {
   return (
     <form className="form p-1">
       <h2 className="form-heading">
-        WHAT WOULD YOU LIKE TO USE THE MONEY FOR?
+        {values.step}. WHAT WOULD YOU LIKE TO USE THE MONEY FOR?
       </h2>
       <div className="form-group">
         <span>Choose from the list the description that fits your idea best:</span>

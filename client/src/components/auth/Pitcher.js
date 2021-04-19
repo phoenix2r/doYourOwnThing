@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Pitcher1 from './pitcher/Pitcher1';
 import Pitcher2 from './pitcher/Pitcher2';
 import Pitcher3 from './pitcher/Pitcher3';
@@ -211,16 +213,6 @@ const Pitcher = () => {
 
       <section className="progress-steps">
 
-        <Stepindicator  />
-
-        {/* <div className="step circle m-1">
-          <div className="arrow"></div>
-          <p className="arrow-number">1</p>
-          <div className="step-content">
-            <i className="far fa-comment-alt"></i>
-            <div className="step-title">Details</div>
-          </div>
-        </div>
         <div className="step circle m-1">
           <div className="arrow"></div>
           <p className="arrow-number">1</p>
@@ -231,7 +223,7 @@ const Pitcher = () => {
         </div>
         <div className="step circle m-1">
           <div className="arrow"></div>
-          <p className="arrow-number">1</p>
+          <p className="arrow-number">2</p>
           <div className="step-content">
             <i className="far fa-comment-alt"></i>
             <div className="step-title">Details</div>
@@ -239,7 +231,7 @@ const Pitcher = () => {
         </div>
         <div className="step circle m-1">
           <div className="arrow"></div>
-          <p className="arrow-number">1</p>
+          <p className="arrow-number">3</p>
           <div className="step-content">
             <i className="far fa-comment-alt"></i>
             <div className="step-title">Details</div>
@@ -247,12 +239,52 @@ const Pitcher = () => {
         </div>
         <div className="step circle m-1">
           <div className="arrow"></div>
-          <p className="arrow-number">1</p>
+          <p className="arrow-number">4</p>
           <div className="step-content">
             <i className="far fa-comment-alt"></i>
             <div className="step-title">Details</div>
           </div>
-        </div> */}
+        </div>
+        <div className="step circle m-1">
+          <div className="arrow"></div>
+          <p className="arrow-number">5</p>
+          <div className="step-content">
+            <i className="far fa-comment-alt"></i>
+            <div className="step-title">Details</div>
+          </div>
+        </div>
+        <div className="step circle m-1">
+          <div className="arrow"></div>
+          <p className="arrow-number">6</p>
+          <div className="step-content">
+            <i className="far fa-comment-alt"></i>
+            <div className="step-title">Details</div>
+          </div>
+        </div>
+        <div className="step circle m-1">
+          <div className="arrow"></div>
+          <p className="arrow-number">7</p>
+          <div className="step-content">
+            <i className="far fa-comment-alt"></i>
+            <div className="step-title">Details</div>
+          </div>
+        </div>
+        <div className="step circle m-1">
+          <div className="arrow"></div>
+          <p className="arrow-number">8</p>
+          <div className="step-content">
+            <i className="far fa-comment-alt"></i>
+            <div className="step-title">Details</div>
+          </div>
+        </div>
+        <div className="step circle m-1">
+          <div className="arrow"></div>
+          <p className="arrow-number">9</p>
+          <div className="step-content">
+            <i className="far fa-comment-alt"></i>
+            <div className="step-title">Details</div>
+          </div>
+        </div>
 
       </section>
     </div>

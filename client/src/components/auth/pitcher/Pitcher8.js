@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Pitcher8 = (props) => {
-  const { formData, nextStep, prevStep, handleChange, values } = props
+  const { nextStep, prevStep, handleChange, values } = props
 
   const submitStep = e => {
     e.preventDefault();
-    console.log(formData);
+    console.log(values);
     nextStep();
   }
 
@@ -14,7 +14,7 @@ const Pitcher8 = (props) => {
   return (
     <form action="dashboard.html" className="form p-1">
       <h2 className="form-heading">
-        ALMOST THERE - UPLOAD YOUR PITCH
+      {values.step}. ALMOST THERE - UPLOAD YOUR PITCH
       </h2>
       <div className="form-group">
         <span>Upload a video to really make your pitch sing</span>

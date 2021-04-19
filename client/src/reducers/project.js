@@ -1,9 +1,12 @@
-import { CLEAR_PROFILE, GET_PROFILE, PROFILE_ERROR } from "../actions/types";
+import {
+  GET_PROJECTS,
+  PROJECT_ERROR,
+  CREATE_PROJECT
+} from '../actions/types';
 
 const initialState = {
-  profile: null,
-  profiles: [],
   projects: [],
+  project: null,
   loading: true,
   error: {}
 }
@@ -12,27 +15,20 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
 
   switch(type) {
-    case GET_PROFILE:
+    case GET_PROJECTS:
+    case CREATE_PROJECT:
       return {
         ...state,
-        profile: payload,
+        posts: payload,
         loading: false
-      };
-    case PROFILE_ERROR:
+      }; 
+    case PROJECT_ERROR:
       return {
         ...state,
         error: payload,
         loading: false
       };
-    case CLEAR_PROFILE:
-      return{
-        ...state,
-        profile: null,
-        projects: [],
-        loading: false
-      };
     default: 
       return state;
   }
-
 }

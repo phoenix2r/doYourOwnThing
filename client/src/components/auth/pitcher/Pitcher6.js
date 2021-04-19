@@ -14,7 +14,7 @@ const Pitcher6 = (props) => {
   return (
     <form action="dashboard.html" className="form p-1">
       <h2 className="form-heading">
-        YOUR PROJECT LOOKS LIKE THIS
+      {values.step}. YOUR PROJECT LOOKS LIKE THIS
       </h2>
       <div className="buttons">
         <div className="btn btn-primary" onClick={submitStep}>Continue</div>

@@ -14,7 +14,7 @@ const Pitcher4 = (props) => {
   return (
     <form action="dashboard.html" className="form p-1">
       <h2 className="form-heading">
-        WHAT WOULD YOU LIKE TO CALL YOUR BUSINESS?
+      {values.step}. WHAT WOULD YOU LIKE TO CALL YOUR BUSINESS?
       </h2>
       <div className="form-group">
         <span>Enter the name of your business:</span>

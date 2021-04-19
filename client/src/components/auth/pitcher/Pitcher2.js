@@ -14,7 +14,7 @@ const Pitcher2 = (props) => {
   return (
     <form action="dashboard.html" className="form p-1">
       <h2 className="form-heading">
-        HOW MUCH DO YOU NEED?
+        {values.step}. HOW MUCH DO YOU NEED?
       </h2>
       <div className="form-group">
         <span>Enter the amount you need in pounds</span>

@@ -7,6 +7,7 @@ import Pitcher from './components/auth/Pitcher';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
+import Project from './components/projects/Projects';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -37,6 +38,7 @@ const App = () => {
           <Switch>
             <Route exact path="/pitcher" component={ Pitcher } />
             <Route exact path="/login" component={ Login } />
+            <Route exact path="/project" component={ Project } />
             <PrivateRoute exact path="/dashboard" component={ Dashboard } />
           </Switch>
         </Fragment>

@@ -14,7 +14,7 @@ const Pitcher5 = (props) => {
   return (
     <form action="dashboard.html" className="form p-1">
       <h2 className="form-heading">
-        TELL US MORE ABOUT YOUR IDEA
+      {values.step}. TELL US MORE ABOUT YOUR IDEA
       </h2>
       <div className="form-group">
         <span>What sector is your business in?</span>

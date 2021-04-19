@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 const Pitcher1 = (props) => {
 
   const { nextStep, handleChange, values, setAlert, register } = props;
-  const { username, email, password, password2, role } = values;
+  const { username, email, password, password2, role, step } = values;
 
   const submitStep = e => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const Pitcher1 = (props) => {
   return (
     <form className="form p-1">
       <h2 className="form-heading">
-        LET US KNOW WHO YOU ARE
+        {step}. LET US KNOW WHO YOU ARE
       </h2>
       <div className="form-group">
         <input type="text" placeholder="User Name" required onChange={handleChange('username')} defaultValue={username} />
