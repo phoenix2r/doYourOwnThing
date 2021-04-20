@@ -1,19 +1,18 @@
 import React from 'react';
 import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 
 const Pitcher3 = (props) => {
   const { nextStep, prevStep, handleSelectChange, values, step } = props
 
   const purposeOptions = [
-    { value: "equipment", label: "purchase or upgrade equipment" },
-    { value: "premises", label: "create or expand premises" },
-    { value: "advertising", label: "run advertising" },
-    { value: "website", label: "develop website" },
-    { value: "digital", label: "develop app or digital assets" },
-    { value: "branding", label: "develop business branding" },
-    { value: "vehicle", label: "modify or obtain a vehicle" },
-    { value: "materials", label: "purchase startup materials or ingredients" },
+    { id: "purpose", value: "equipment", label: "purchase or upgrade equipment" },
+    { id: "purpose", value: "premises", label: "create or expand premises" },
+    { id: "purpose", value: "advertising", label: "run advertising" },
+    { id: "purpose", value: "website", label: "develop website" },
+    { id: "purpose", value: "digital", label: "develop app or digital assets" },
+    { id: "purpose", value: "branding", label: "develop business branding" },
+    { id: "purpose", value: "vehicle", label: "modify or obtain a vehicle" },
+    { id: "purpose", value: "materials", label: "purchase startup materials or ingredients" },
   ]
 
   const submitStep = e => {

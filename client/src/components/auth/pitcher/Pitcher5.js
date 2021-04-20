@@ -1,7 +1,19 @@
 import React from 'react';
+import Select from 'react-select';
 
 const Pitcher5 = (props) => {
-  const { nextStep, prevStep, handleChange, values } = props
+  const { nextStep, prevStep, handleChange, handleSelectChange, values } = props;
+
+  const sectorOptions = [
+    { id: "sector", value: "hospitality", label: "hospitality" },
+    { id: "sector", value: "catering", label: "catering" },
+    { id: "sector", value: "construction", label: "construction" },
+    { id: "sector", value: "woodwork", label: "woodwork" },
+    { id: "sector", value: "metalwork", label: "metalwork" },
+    { id: "sector", value: "digital", label: "digital" },
+    { id: "sector", value: "creative arts", label: "creative arts" },
+    { id: "sector", value: "tutoring", label: "tutoring" },
+  ]
 
   const submitStep = e => {
     e.preventDefault();
@@ -19,7 +31,14 @@ const Pitcher5 = (props) => {
       <div className="form-group">
         <span>What sector is your business in?</span>
         <span>Choose the option that fits best:</span>
-        <input type="text" placeholder="Business sector" required onChange={handleChange('sector')} defaultValue={values.sector} />
+        <Select
+          defaultValue={sectorOptions[0]}
+          name="sector"
+          options={sectorOptions}
+          className="basic-single"
+          classNamePrefix="select"
+          onChange={handleSelectChange}
+        />
       </div>
       <div className="form-group">
         <span>In a few words, give us a description of your business:</span>

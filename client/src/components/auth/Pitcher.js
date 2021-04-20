@@ -70,9 +70,12 @@ const Pitcher = () => {
   }
 
   // Handle select form field changes
-  const handleSelectChange = selectValue => {
-    setFormData({ ...formData, 'purpose': selectValue.value});
+  const handleSelectChange = (selectValue) => {
+    setFormData({ ...formData, [selectValue.id]: selectValue.value});
   }
+
+  // Handle file upload field changes
+  
 
   // Switch statement to change between steps of the form
   const renderSwitch = (params) => {
@@ -122,6 +125,7 @@ const Pitcher = () => {
             nextStep = {nextStep}
             prevStep = {prevStep}
             handleChange = {handleChange}
+            handleSelectChange = {handleSelectChange}
             values = {values}
           />
         )
