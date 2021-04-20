@@ -18,7 +18,7 @@ const Pitcher3 = (props) => {
 
   const submitStep = e => {
     e.preventDefault();
-    console.log(values)
+    console.log(values);
     nextStep();
   }
 
@@ -35,7 +35,7 @@ const Pitcher3 = (props) => {
         options={purposeOptions}
         className="basic-single"
         classNamePrefix="select"
-        // onChange={handleSelectChange}
+        onChange={handleSelectChange}
         />
       </div>
       <div className="buttons">

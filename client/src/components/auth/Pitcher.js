@@ -68,10 +68,10 @@ const Pitcher = () => {
   const handleChange = input => e => {
     setFormData({ ...formData, [input]: e.target.value});
   }
+
   // Handle select form field changes
-  const handleSelectChange = e => {
-    setFormData({ ...formData, [e.target.name] : e });
-    console.log(e);
+  const handleSelectChange = selectValue => {
+    setFormData({ ...formData, 'purpose': selectValue.value});
   }
 
   // Switch statement to change between steps of the form
@@ -101,7 +101,7 @@ const Pitcher = () => {
           <Pitcher3
             nextStep = {nextStep}
             prevStep = {prevStep}
-            handleChange = {handleSelectChange}
+            handleSelectChange = {handleSelectChange}
             values = {values}
           />
         )

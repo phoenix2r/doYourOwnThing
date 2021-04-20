@@ -8,6 +8,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Project from './components/projects/Projects';
+import EditProfile from './components/auth/profile-forms/EditProfile';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -16,6 +17,7 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+
 
 if(localStorage.token) {
   setAuthToken(localStorage.token);
@@ -40,6 +42,7 @@ const App = () => {
             <Route exact path="/login" component={ Login } />
             <Route exact path="/project" component={ Project } />
             <PrivateRoute exact path="/dashboard" component={ Dashboard } />
+            <PrivateRoute exact path="/edit-profile" component={ EditProfile } />
           </Switch>
         </Fragment>
       </Router>

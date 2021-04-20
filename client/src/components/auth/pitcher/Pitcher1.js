@@ -15,7 +15,7 @@ const Pitcher1 = (props) => {
     if(password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      register({ username, email, password, role });
+      // register({ username, email, password, role });
       nextStep();
     }
     console.log(values);
