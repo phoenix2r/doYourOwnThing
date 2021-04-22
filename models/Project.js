@@ -28,6 +28,7 @@ const ProjectSchema = new Schema({
     type: String,
     required: true
   },
+  // The video will be an embedded url
   video: {
     type: String,
     required: true

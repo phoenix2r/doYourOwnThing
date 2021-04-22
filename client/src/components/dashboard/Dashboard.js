@@ -31,7 +31,12 @@ const Dashboard = ({
           <div className="dashboard">
 
           <div className="dashboard-item dashboard-img">
-            <img src="./imgs/builder.jpg" alt="" />
+            {/* {checkUrl ? (
+              <img src={user.avatar} alt="" />
+            ) : (
+              <i className="fas fa-user-circle"></i>
+            )} */}
+            <i className="fas fa-user-circle"></i>
           </div>
 
           <div className="dashboard-inner">
