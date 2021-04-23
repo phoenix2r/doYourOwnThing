@@ -86,18 +86,6 @@ const Pitcher = () => {
     gofundme,
   };
 
-  const stepIndicators = [
-    { stepNo: '1', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '2', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '3', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '4', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '5', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '6', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '7', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '8', label: 'Details', icon: 'far fa-comment-alt' },
-    { stepNo: '9', label: 'Details', icon: 'far fa-comment-alt' },
-  ];
-
   // Proceed to the next step
   const nextStep = () => {
     const { step } = stepCount;
@@ -231,55 +219,37 @@ const Pitcher = () => {
   };
 
   return (
-    <div className='single-page' id='pitcher'>
-      <section className='main-content container'>
-        <div className='title'>
-          <div className='title-box'></div>
-          <div className='title-frame'></div>
-          <div className='title-content'>
-            <h1 className='x-large-top'>PITCH A</h1>
-            <h1 className='x-large-bottom'>PROJECT</h1>
-          </div>
-        </div>
-
-        {renderSwitch(values)}
-
-        <div className='guidance'>
-          <video className='video' src='./video/DYOT_v03.mp4' controls></video>
-          <div className='controls'>
-            <div className='playback-buttons'>
-              <button id='play'>
-                <i className='fas fa-play fa-lg'></i>
-              </button>
-              <button id='pause'>
-                <i className='fas fa-pause fa-lg'></i>
-              </button>
-            </div>
-            <div className='progress-bar'>
-              <div className='blue-bar'></div>
-            </div>
-            <div className='environment-buttons'>
-              <button id='volume'>
-                <i className='fas fa-volume-off fa-lg'></i>
-              </button>
-              <button id='screen-toggle'>
-                <i className='fas fa-desktop fa-lg'></i>
-              </button>
+    <section id='pitch'>
+      <div class='container'>
+        <div id='pitch-journey'>
+          {/* <!-- title-box --> */}
+          <div class='title'>
+            <div class='title-box'></div>
+            <div class='title-frame'></div>
+            <div class='title-content'>
+              <h1 class='x-large-bottom'>BECOME A</h1>
+              <h1 class='x-large-top'>PITCHER</h1>
             </div>
           </div>
+
+          {/* <!-- Video Help --> */}
+          <div class='video'>
+            <div class='video-box'></div>
+            <div class='video-frame'></div>
+            <div class='video-content'>
+              <h1 class='x-large-bottom'>VIDEO</h1>
+              <h1 class='x-large-top'>SUPPORT</h1>
+            </div>
+          </div>
+
+          {renderSwitch(values)}
         </div>
-      </section>
+      </div>
 
       <section className='progress-steps'>
-        {/* { stepIndicators.map(item => {
-          return (
-            <Stepindicator key={item.stepNo} label={item.label} icon={item.icon} />
-          );
-        }) } */}
-
         <Stepindicator step={step} />
       </section>
-    </div>
+    </section>
   );
 };
 

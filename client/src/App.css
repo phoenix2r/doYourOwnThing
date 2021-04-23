@@ -172,7 +172,7 @@
 }
 
 .btn.btn-primary:hover {
-  background: #f49800;
+  background: #bcce35;
 }
 
 .btn.btn-secondary {
@@ -181,7 +181,7 @@
 }
 
 .btn.btn-secondary:hover {
-  background: #1fc0da;
+  background: #bcce35;
 }
 
 .btn.btn-outline {
@@ -194,6 +194,13 @@
 .btn.btn-outline:hover {
   background: #f49800;
   color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden;
 }
 
 video {
@@ -246,12 +253,6 @@ video {
   border-radius: 15px;
 }
 
-.circle {
-  border-radius: 50%;
-  border: solid 5px #005a84;
-  background: #fff;
-}
-
 .white-overlay {
   height: 100%;
   width: 100%;
@@ -262,13 +263,32 @@ video {
 }
 
 .form {
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.4);
   color: #fff;
+  max-width: 75%;
+  margin: 4.5rem auto 1rem auto;
 }
 
-.form-group {
-  margin: 1.2rem 0;
+.form-pitch {
+  border: 5px solid #1fc0da;
+  background: rgba(244, 152, 0, 0.8);
+}
+
+.form-pitch input:focus-visible {
+  outline-color: #1fc0da;
+}
+
+.form-sponsor {
+  border: 5px solid #f49800;
+  background: rgba(31, 192, 218, 0.8);
+}
+
+.form-sponsor input:focus-visible {
+  outline-color: #f49800;
+}
+
+.form h2 {
+  font-size: 2rem;
+  text-align: center;
 }
 
 .form input[type='text'],
@@ -283,8 +303,16 @@ video {
   border: none;
 }
 
-.form .buttons {
-  text-align: right;
+.form .form-buttons {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.form .form-buttons .btn {
+  min-width: 200px;
+  text-align: center;
+  border: solid 3px #fff;
 }
 
 ::placeholder {
@@ -303,7 +331,6 @@ label input[type='checkbox'] {
   margin-right: 1rem;
 }
 
-/* Hide the browser's default checkbox */
 .single-page {
   display: flex;
   justify-content: center;
@@ -315,18 +342,6 @@ label input[type='checkbox'] {
 .single-page-sidebar {
   display: block;
   float: right;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
-  margin: 6rem 0 3rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .main-content .title {
@@ -398,6 +413,16 @@ label input[type='checkbox'] {
   padding: 1rem;
 }
 
+#pitcher {
+  background: url('./imgs/background1.jpg') no-repeat center center/cover;
+}
+
+.circle {
+  border-radius: 50%;
+  border: solid 5px #f49800;
+  background: #fff;
+}
+
 .progress-steps {
   width: 100%;
   max-width: 1100px;
@@ -444,15 +469,19 @@ label input[type='checkbox'] {
 }
 
 .progress-steps .step-content i {
-  color: #005a84;
+  color: #1fc0da;
 }
 
 .progress-steps .step-content .step-title {
-  color: #f15a38;
+  color: #f49800;
 }
 
-#pitcher {
-  background: url(./imgs/sponsor-bg.jpg) no-repeat center center/cover;
+.progress-steps .active-step {
+  transform: scale(1.2);
+}
+
+.progress-steps .active-step.circle {
+  border: solid 5px #1fc0da;
 }
 
 * {
@@ -476,6 +505,13 @@ a {
 
 ul {
   list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
 }
 
 img {
@@ -746,7 +782,7 @@ footer .footer-social {
 
 .sponsor {
   position: relative;
-  background: url('./imgs/sponsor-bg.jpg') no-repeat center center/cover;
+  background: url('./imgs/background2.jpg') no-repeat center center/cover;
   height: 90vh;
   margin-top: 5rem;
 }
@@ -1011,4 +1047,61 @@ footer .footer-social {
 .project-page .project-content {
   grid-column: 6 / span 5;
   grid-row: 7 / span 3;
+}
+
+#pitch {
+  offset: 4rem;
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0)),
+    url('./imgs/background1.jpg') no-repeat center center/cover;
+  height: 100vh;
+}
+
+#pitch-journey {
+  position: relative;
+}
+
+#pitch-journey .title {
+  position: absolute;
+  top: 80%;
+  left: -1rem;
+  color: #fff;
+}
+
+#pitch-journey .title .title-content {
+  background: #1fc0da;
+  border: 3px solid #fff;
+  padding: 1rem;
+}
+
+#pitch-journey .title .title-content .x-large-bottom {
+  font-size: 3rem;
+}
+
+#pitch-journey .title .title-content .x-large-top {
+  font-size: 3rem;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+#pitch-journey .video {
+  position: absolute;
+  top: 3%;
+  right: -1rem;
+  color: #fff;
+}
+
+#pitch-journey .video .video-content {
+  background: #1fc0da;
+  border: 3px solid #fff;
+  padding: 1rem;
+}
+
+#pitch-journey .video .video-content .x-large-bottom {
+  font-size: 3rem;
+}
+
+#pitch-journey .video .video-content .x-large-top {
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 0;
 }
