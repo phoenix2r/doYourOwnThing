@@ -11,7 +11,7 @@ const ProjectItem = ({
   // auth,
   project: {
     _id,
-    projectAuthor,
+    username,
     amountReq,
     amountSoFar,
     purpose,
@@ -22,12 +22,15 @@ const ProjectItem = ({
     startDate,
     gofundme,
   },
+  // user: {
+
+  // }
 }) => (
   <section className='project-single'>
     <div className='container'>
       {/* <!-- Title --> */}
       <h2 className='project-single-title'>
-        {projectName} by {projectAuthor}
+        {projectName} by {username}
       </h2>
 
       {/* <!-- Video --> */}
@@ -38,7 +41,7 @@ const ProjectItem = ({
       <div className='project-single-details'>
         <div className='sponsor-box'>
           <h3>
-            Help {projectAuthor} get {purpose}
+            Help {username} get {purpose}
           </h3>
           <h3>
             £{amountReq} <span>GOAL</span>
@@ -52,15 +55,15 @@ const ProjectItem = ({
         </div>
         <div className='project-single-atts'>
           <div className='project-single-created'>
-            Created by {projectAuthor}, on
+            Created by {username}, on
             <Moment format='DD/MM/YYYY'>{startDate}</Moment>
           </div>
-          <div className='project-single-tags'>{sector}</div>
+          <div className='project-single-tags'>Tags: {sector}</div>
           <img id='project-author-avatar' src={imageDefault} alt='' />
         </div>
         <div className='project-single-description'>{description}</div>
-        <div class='progress-bar'>
-          <div class='progress-bar-inner'></div>
+        <div className='progress-bar'>
+          <div className='progress-bar-inner'></div>
         </div>
       </div>
     </div>

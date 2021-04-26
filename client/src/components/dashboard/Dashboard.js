@@ -4,18 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/pitcher-profile';
+import DashboardMain from './DashboardMain';
 import DashboardActions from './DashboardActions';
-// import { getProjects } from '../../actions/project';
-// import ProjectHeadline from '../projects/ProjectHeadline';
-// import PrivateRoute from './components/routing/PrivateRoute';
-// import Projects from '../projects/Projects';
+import imageDefault from '../../imgs/builder.jpg';
 
-const Dashboard = ({ 
+const Dashboard = ({
   getCurrentProfile,
-  auth: { user }, 
+  auth: { user },
   profile: { profile, loading },
-  // getProjects, 
-  // project: { project, loading }
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -25,65 +21,69 @@ const Dashboard = ({
   //   getProjects();
   // }, [getProjects]);
 
-  return loading && profile === null ?<Spinner /> : <Fragment>
-      <div className="single-page" id="pitcher">
-        <section className="main-content container">
-          <div className="dashboard">
-
-          <div className="dashboard-item dashboard-img">
-            {/* {checkUrl ? (
-              <img src={user.avatar} alt="" />
-            ) : (
-              <i className="fas fa-user-circle"></i>
-            )} */}
-            <i className="fas fa-user-circle"></i>
+  return loading && profile === null ? (
+    <Spinner />
+  ) : (
+    <Fragment>
+      <section className='dashboard'>
+        <div className='container'>
+          {/* <!-- Title Box --> */}
+          <div className='title-box dashboard-pitcher'>
+            <h2>{user.username}'s Dashboard</h2>
           </div>
 
-          <div className="dashboard-inner">
-            <div className="dashboard-item dashboard-headline">Hello { user && user.username }, welcome to your dashbaord</div>
-            <div className="dashboard-item dashboard-projects">
-              <h3 className="dashboard-projects-number">Active projects: value</h3>
-              {/* <ProjectHeadline /> */}
+          <div className='dashboard-head'>
+            <div className='profile-pic'>
+              <img src={imageDefault} alt='' />
+              <a id='profile-pic-edit' href='#'>
+                Change profile picture
+              </a>
+            </div>
+
+            {/* <!-- High level functions --> */}
+            <div className='dashboard-menu'>
+              <h3>Welcome back, {user.username}</h3>
+              <ul>
+                <li>Account</li>
+                <li>Settings</li>
+                <li>Support</li>
+                <li>Sign Out</li>
+              </ul>
             </div>
           </div>
 
-          <div className="dashboard-item dashboard-title">
-            <div className="title-content">
-              <h1 className="x-large-bottom">DASHBOARD FOR</h1>
-              <h1 className="x-large-top">{user.username}</h1>
-            </div>
-          </div>
+          <DashboardMain />
 
-          </div>
-
-        </section>
-
-      </div>
-      {profile !== null ? (
-        <Fragment>
-          <DashboardActions />
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p>You have not yet setup a profile, please add some info</p>
-          <div className="buttons">
-            <Link to="/pitcher" className="btn btn-primary">Create Profile</Link>
-          </div>
-        </Fragment>
-      )}
-  </Fragment>;
+          {profile !== null ? (
+            <Fragment>
+              <DashboardActions />
+            </Fragment>
+          ) : (
+            <Fragment>
+              <p>You have not yet setup a profile, please add some info</p>
+              <div className='buttons'>
+                <Link to='/pitcher' className='btn btn-primary'>
+                  Create Profile
+                </Link>
+              </div>
+            </Fragment>
+          )}
+        </div>
+      </section>
+    </Fragment>
+  );
 };
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   // getProjects: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);

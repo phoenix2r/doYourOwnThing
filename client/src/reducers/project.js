@@ -20,13 +20,13 @@ export default function (state = initialState, action) {
     case CREATE_PROJECT:
       return {
         ...state,
-        posts: payload,
+        projects: payload,
         loading: false,
       };
     case GET_PROJECT:
       return {
         ...state,
-        post: payload,
+        projects: payload,
         loading: false,
       };
     case PROJECT_ERROR:
