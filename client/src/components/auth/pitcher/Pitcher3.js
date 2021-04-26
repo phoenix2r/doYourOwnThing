@@ -23,6 +23,21 @@ const Pitcher3 = (props) => {
     },
   ];
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted #1fc0da',
+      color: state.isSelected ? '#fff' : '#939598',
+      padding: 10,
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+
+      return { ...provided, opacity, transition };
+    },
+  };
+
   const submitStep = (e) => {
     e.preventDefault();
     console.log(values);
@@ -39,6 +54,7 @@ const Pitcher3 = (props) => {
           Choose from the list the description that fits your idea best:
         </label>
         <Select
+          styles={customStyles}
           defaultValue={purposeOptions[0]}
           name='purpose'
           options={purposeOptions}

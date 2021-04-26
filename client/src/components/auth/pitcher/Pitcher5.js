@@ -21,6 +21,21 @@ const Pitcher5 = (props) => {
     { id: 'sector', value: 'tutoring', label: 'tutoring' },
   ];
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted #1fc0da',
+      color: state.isSelected ? '#fff' : '#939598',
+      padding: 10,
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+
+      return { ...provided, opacity, transition };
+    },
+  };
+
   const submitStep = (e) => {
     e.preventDefault();
     console.log(values);
@@ -36,6 +51,7 @@ const Pitcher5 = (props) => {
         <label>What sector is your business in?</label>
         <label>Choose the option that fits best:</label>
         <Select
+          styles={customStyles}
           defaultValue={sectorOptions[0]}
           name='sector'
           options={sectorOptions}

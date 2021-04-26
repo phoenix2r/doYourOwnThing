@@ -220,25 +220,25 @@ const Pitcher = () => {
 
   return (
     <section id='pitch'>
-      <div class='container'>
+      <div className='container'>
         <div id='pitch-journey'>
           {/* <!-- title-box --> */}
-          <div class='title'>
-            <div class='title-box'></div>
-            <div class='title-frame'></div>
-            <div class='title-content'>
-              <h1 class='x-large-bottom'>BECOME A</h1>
-              <h1 class='x-large-top'>PITCHER</h1>
+          <div className='title'>
+            <div className='title-box'></div>
+            <div className='title-frame'></div>
+            <div className='title-content'>
+              <h1 className='x-large-bottom'>BECOME A</h1>
+              <h1 className='x-large-top'>PITCHER</h1>
             </div>
           </div>
 
           {/* <!-- Video Help --> */}
-          <div class='video'>
-            <div class='video-box'></div>
-            <div class='video-frame'></div>
-            <div class='video-content'>
-              <h1 class='x-large-bottom'>VIDEO</h1>
-              <h1 class='x-large-top'>SUPPORT</h1>
+          <div className='video'>
+            <div className='video-box'></div>
+            <div className='video-frame'></div>
+            <div className='video-content'>
+              <h1 className='x-large-bottom'>VIDEO</h1>
+              <h1 className='x-large-top'>SUPPORT</h1>
             </div>
           </div>
 

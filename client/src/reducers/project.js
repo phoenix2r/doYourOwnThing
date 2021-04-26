@@ -1,34 +1,41 @@
 import {
   GET_PROJECTS,
+  GET_PROJECT,
   PROJECT_ERROR,
-  CREATE_PROJECT
+  CREATE_PROJECT,
 } from '../actions/types';
 
 const initialState = {
   projects: [],
   project: null,
   loading: true,
-  error: {}
-}
+  error: {},
+};
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
-  switch(type) {
+  switch (type) {
     case GET_PROJECTS:
     case CREATE_PROJECT:
       return {
         ...state,
         posts: payload,
-        loading: false
-      }; 
+        loading: false,
+      };
+    case GET_PROJECT:
+      return {
+        ...state,
+        post: payload,
+        loading: false,
+      };
     case PROJECT_ERROR:
       return {
         ...state,
         error: payload,
-        loading: false
+        loading: false,
       };
-    default: 
+    default:
       return state;
   }
 }

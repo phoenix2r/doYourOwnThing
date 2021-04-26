@@ -13,41 +13,13 @@ const Pitcher1 = (props) => {
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      // register({ username, email, password, role });
+      register({ username, email, password, role });
       nextStep();
     }
     console.log(values);
   };
 
   return (
-    // <form className="form p-1">
-    //   <h2 className="form-heading">
-    //     {step}. LET US KNOW WHO YOU ARE
-    //   </h2>
-    //   <div className="form-group">
-    //     <input type="text" placeholder="User Name" required onChange={handleChange('username')} defaultValue={username} />
-    //   </div>
-    //   <div className="form-group">
-    //     <input type="text" placeholder="Email Address" onChange={handleChange('email')} defaultValue={email} />
-    //   </div>
-    //   <div className="form-group">
-    //     <input type="password" placeholder="Password" minLength="8" onChange={handleChange('password')} defaultValue={password} />
-    //   </div>
-    //   <div className="form-group">
-    //     <input type="password" placeholder="Confirm Password" minLength="8" onChange={handleChange('password2')} defaultValue={password2} />
-    //   </div>
-    //   <div className="form-group">
-    //     <div onChange={handleChange('role')}>
-    //       <input type="radio" value="sponsor" name="role" />SPONSOR
-    //       <input type="radio" value="pitcher" name="role" />PITCHER
-    //     </div>
-    //   </div>
-    //   <div className="buttons">
-    //     <div className="btn btn-primary" onClick={submitStep}>Next</div>
-    //   </div>
-    // </form>
-    // <!-- Form -->
-
     <form className='form form-pitch p-4'>
       <h2 className='form-heading'>{step}: LET US KNOW WHO YOU ARE</h2>
       <div className='form-group'>
@@ -77,7 +49,7 @@ const Pitcher1 = (props) => {
         <input
           type='password'
           placeholder='Password'
-          minlength='8'
+          minLength='8'
           onChange={handleChange('password')}
           defaultValue={password}
         />
@@ -87,23 +59,24 @@ const Pitcher1 = (props) => {
         <input
           type='password'
           placeholder='Confirm Password'
-          minlength='8'
+          minLength='8'
           onChange={handleChange('password2')}
           defaultValue={password2}
         />
       </div>
       <div className='form-group'>
-        <div onChange={handleChange('role')}>
-          <input type='radio' value='sponsor' name='role' />
-          SPONSOR
-          <input type='radio' value='pitcher' name='role' />
-          PITCHER
+        <div className='role-check' onChange={handleChange('role')}>
+          <p>
+            <input type='radio' value='sponsor' name='role' />
+            SPONSOR
+          </p>
+          <p>
+            <input type='radio' value='pitcher' name='role' />
+            PITCHER
+          </p>
         </div>
       </div>
       <div className='form-buttons'>
-        {/* <a href='register2.html' className='btn btn-secondary'>
-          Back
-        </a> */}
         <div className='btn btn-primary' onClick={submitStep}>
           Next
         </div>
