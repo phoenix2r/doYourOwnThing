@@ -10,7 +10,7 @@ connectDB();
 // Init Middleware - to parse body requests
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('API Running'));
+// app.get('/', (req, res) => res.send('API Running'));
 
 // Define routes
 app.use('/api/users', require('./routes/api/users'));
@@ -20,7 +20,7 @@ app.use('/api/projects', require('./routes/api/projects'));
 app.use('/api/auth', require('./routes/api/auth'));
 
 // Serve static assets in production
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
 
