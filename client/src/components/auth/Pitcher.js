@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Pitcher1 from './pitcher/Pitcher1';
 import Pitcher2 from './pitcher/Pitcher2';
 import Pitcher3 from './pitcher/Pitcher3';

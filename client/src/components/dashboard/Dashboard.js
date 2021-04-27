@@ -15,11 +15,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
-
-  // useEffect(() => {
-  //   getProjects();
-  // }, [getProjects]);
+  }, [getCurrentProfile]);
 
   return loading && profile === null ? (
     <Spinner />
@@ -35,9 +31,9 @@ const Dashboard = ({
           <div className='dashboard-head'>
             <div className='profile-pic'>
               <img src={imageDefault} alt='' />
-              <a id='profile-pic-edit' href='#'>
+              <Link id='profile-pic-edit' to='!#'>
                 Change profile picture
-              </a>
+              </Link>
             </div>
 
             {/* <!-- High level functions --> */}
@@ -52,7 +48,7 @@ const Dashboard = ({
             </div>
           </div>
 
-          <DashboardMain />
+          <DashboardMain userid={user._id} />
 
           {profile !== null ? (
             <Fragment>

@@ -3,7 +3,6 @@ import ProjectItem from '../../projects/ProjectItem';
 
 const Pitcher6 = (props) => {
   const { nextStep, prevStep, values } = props;
-  const { projectName, username, description, amountReq } = values;
 
   const submitStep = (e) => {
     e.preventDefault();

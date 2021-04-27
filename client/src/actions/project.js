@@ -24,6 +24,23 @@ export const getProjects = () => async (dispatch) => {
   }
 };
 
+// Get projects for a specific user
+export const getProjectsForUser = (userid) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/projects/user/${userid}`);
+
+    dispatch({
+      type: GET_PROJECTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROJECT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
 // Get one project by id
 export const getProject = (id) => async (dispatch) => {
   try {

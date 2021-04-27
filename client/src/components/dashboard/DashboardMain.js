@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import { getProjects } from '../../actions/project';
+import { getProjectsForUser } from '../../actions/project';
 import ProjectHeadline from '../projects/ProjectHeadline';
 
-const DashboardMain = ({ getProjects, project: { projects, loading } }) => {
+const DashboardMain = ({
+  getProjectsForUser,
+  project: { projects, loading },
+  userid,
+}) => {
   useEffect(() => {
-    getProjects();
-  }, [getProjects]);
+    console.log(userid);
+    getProjectsForUser(userid);
+  }, [getProjectsForUser]);
 
   return loading && projects === null ? (
     <Spinner />
@@ -29,13 +34,15 @@ const DashboardMain = ({ getProjects, project: { projects, loading } }) => {
       </div>
 
       {/* <!-- Create more projects --> */}
-      <div className='btn btn-primary btn-create'>Create a new project +</div>
+      <Link className='btn btn-primary btn-create' to='!#'>
+        Create a new project +
+      </Link>
     </Fragment>
   );
 };
 
 DashboardMain.propTypes = {
-  getProjects: PropTypes.func.isRequired,
+  getProjectsForUser: PropTypes.func.isRequired,
   project: PropTypes.object.isRequired,
 };
 
@@ -43,4 +50,4 @@ const mapStateToProps = (state) => ({
   project: state.project,
 });
 
-export default connect(mapStateToProps, { getProjects })(DashboardMain);
+export default connect(mapStateToProps, { getProjectsForUser })(DashboardMain);

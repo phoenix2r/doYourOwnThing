@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 
 const Pitcher3 = (props) => {
-  const { nextStep, prevStep, handleSelectChange, values, step } = props;
+  const { nextStep, prevStep, handleSelectChange, values } = props;
 
   const purposeOptions = [
     {
