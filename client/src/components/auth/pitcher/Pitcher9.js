@@ -1,11 +1,11 @@
 import React from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createProject } from '../../../actions/project';
 
-const Pitcher9 = (props, isAuthenticated, history) => {
-  const { prevStep, values, createProject, handleChange } = props;
+const Pitcher9 = (props) => {
+  const { prevStep, values, createProject, handleChange, nextStep } = props;
   const {
     projectAuthor,
     amountReq,
@@ -19,24 +19,17 @@ const Pitcher9 = (props, isAuthenticated, history) => {
 
   const submitStep = (e) => {
     e.preventDefault();
-    createProject(
-      {
-        projectAuthor,
-        amountReq,
-        purpose,
-        projectName,
-        sector,
-        description,
-        video,
-        gofundme,
-      },
-      history
-    );
-    if (isAuthenticated) {
-      return <Redirect to='/dashboard' />;
-    } else {
-      return <Redirect to='/login' />;
-    }
+    createProject({
+      projectAuthor,
+      amountReq,
+      purpose,
+      projectName,
+      sector,
+      description,
+      video,
+      gofundme,
+    });
+    nextStep();
   };
 
   return (

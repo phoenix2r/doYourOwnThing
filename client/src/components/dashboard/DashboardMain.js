@@ -27,9 +27,11 @@ const DashboardMain = ({
           You have ? active projects
         </p>
         <div className='project-list'>
-          {projects.map((project) => (
-            <ProjectHeadline key={project._id} project={project} />
-          ))}
+          {projects
+            ? projects.map((project) => (
+                <ProjectHeadline key={project._id} project={project} />
+              ))
+            : null}
         </div>
       </div>
 

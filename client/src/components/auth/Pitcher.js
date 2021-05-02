@@ -8,6 +8,7 @@ import Pitcher6 from './pitcher/Pitcher6';
 import Pitcher7 from './pitcher/Pitcher7';
 import Pitcher8 from './pitcher/Pitcher8';
 import Pitcher9 from './pitcher/Pitcher9';
+import PitcherSuccess from './pitcher/PitcherSuccess';
 import Stepindicator from '../layout/Stepindicator';
 
 const Pitcher = () => {
@@ -38,6 +39,10 @@ const Pitcher = () => {
   const [stepCount, setStepCount] = useState({
     step: 1,
   });
+
+  // const [fieldErrors, setFieldErrors] = useState({
+  //   fieldError,
+  // });
 
   const { step } = stepCount;
   const { username, email, password, password2, role } = formData;
@@ -100,8 +105,25 @@ const Pitcher = () => {
     });
   };
 
+  // In-line validation for the input fields
+  // const inLineValidate = (field, conditions) => {
+  //   if(!field.includes(conditions)) {
+  //     field.error = true;
+  //   }
+  // }
+
   // Handle standard form field changes
   const handleChange = (input) => (e) => {
+    // let condition = input.cTerm(input.cValue);
+    // if (e.target.value.length > 2) {
+    //   // setFormData({ ...formData, [input.name]: e.target.value });
+    //   input.error = false;
+    //   console.log('Success');
+    // } else {
+    //   console.log(e.target.value.length);
+    //   input.error = true;
+    //   console.log(input);
+    // }
     setFormData({ ...formData, [input]: e.target.value });
   };
 
@@ -198,12 +220,15 @@ const Pitcher = () => {
       case 9:
         return (
           <Pitcher9
-            // onSubmit = {onSubmit}
             prevStep={prevStep}
+            nextStep={nextStep}
             handleChange={handleChange}
             values={values}
           />
         );
+
+      case 10:
+        return <PitcherSuccess values={values} />;
 
       default:
         return (

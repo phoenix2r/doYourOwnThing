@@ -69,6 +69,7 @@ export const createProject = (
     description,
     video,
     gofundme,
+    history,
   },
   edit = false
 ) => async (dispatch) => {
@@ -100,6 +101,10 @@ export const createProject = (
     });
 
     dispatch(setAlert(edit ? 'Project updated' : 'Project created', 'success'));
+
+    // if (!edit) {
+    //   history.push('./dashboard');
+    // }
   } catch (err) {
     const errors = err.response.data.errors;
 
