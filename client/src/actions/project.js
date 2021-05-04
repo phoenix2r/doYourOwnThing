@@ -5,6 +5,7 @@ import {
   GET_PROJECT,
   PROJECT_ERROR,
   CREATE_PROJECT,
+  CLEAR_PROJECTS,
 } from './types';
 
 // Get projects
@@ -69,7 +70,6 @@ export const createProject = (
     description,
     video,
     gofundme,
-    history,
   },
   edit = false
 ) => async (dispatch) => {
@@ -117,4 +117,11 @@ export const createProject = (
       payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
+};
+
+// Clear projects action to prep for dashboard
+export const clearProjects = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_PROJECTS,
+  });
 };

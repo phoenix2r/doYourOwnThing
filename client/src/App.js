@@ -25,6 +25,7 @@ if (localStorage.token) {
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
+    console.log('Finished running loadUser');
   }, []);
 
   return (
@@ -38,7 +39,7 @@ const App = () => {
           <Switch>
             <Route exact path='/pitcher' component={Pitcher} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/project/:id' component={ProjectItem} />
+            <Route exact path='/projects/:id' component={ProjectItem} />
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
             <PrivateRoute exact path='/edit-profile' component={EditProfile} />
           </Switch>

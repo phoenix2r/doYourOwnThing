@@ -5,7 +5,14 @@ import PropTypes from 'prop-types';
 import { createProject } from '../../../actions/project';
 
 const Pitcher9 = (props) => {
-  const { prevStep, values, createProject, handleChange, nextStep } = props;
+  const {
+    prevStep,
+    values,
+    createProject,
+    handleChange,
+    nextStep,
+    projects,
+  } = props;
   const {
     projectAuthor,
     amountReq,
@@ -17,9 +24,9 @@ const Pitcher9 = (props) => {
     gofundme,
   } = values;
 
-  const submitStep = (e) => {
+  const submitStep = async (e) => {
     e.preventDefault();
-    createProject({
+    const userProject = await createProject({
       projectAuthor,
       amountReq,
       purpose,
@@ -29,8 +36,13 @@ const Pitcher9 = (props) => {
       video,
       gofundme,
     });
+    console.log(userProject);
     nextStep();
   };
+
+  // if (projects.length > 1) {
+  //   nextStep();
+  // }
 
   return (
     <form className='form form-pitch p-4'>
@@ -71,6 +83,7 @@ Pitcher9.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  projects: state.projects.projects,
 });
 
 export default connect(mapStateToProps, { createProject })(

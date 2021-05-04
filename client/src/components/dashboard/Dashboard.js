@@ -27,7 +27,6 @@ const Dashboard = ({
           <div className='title-box dashboard-pitcher'>
             <h2>{user.username}'s Dashboard</h2>
           </div>
-
           <div className='dashboard-head'>
             <div className='profile-pic'>
               <img src={imageDefault} alt='' />
@@ -47,9 +46,7 @@ const Dashboard = ({
               </ul>
             </div>
           </div>
-
-          <DashboardMain userid={user._id} />
-
+          {profile ? <DashboardMain userid={user._id} /> : <Spinner />}
           {profile !== null ? (
             <Fragment>
               <DashboardActions />

@@ -30,6 +30,9 @@ const ProjectHeadline = ({
         <div className='project-headline-btns'>
           <div className='btn btn-primary'>See sponsors</div>
           <div className='btn btn-primary'>Promote</div>
+          <Link to={`/projects/${_id}`}>
+            <div className='btn btn-primary'>View Pitch</div>
+          </Link>
           <div className='btn btn-secondary btn-pitch-edit'>Edit Pitch</div>
         </div>
       </div>

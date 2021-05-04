@@ -8,13 +8,15 @@ import ProjectHeadline from '../projects/ProjectHeadline';
 
 const DashboardMain = ({
   getProjectsForUser,
-  project: { projects, loading },
+  projects: { projects, loading },
   userid,
 }) => {
   useEffect(() => {
     console.log(userid);
     getProjectsForUser(userid);
   }, [getProjectsForUser]);
+
+  const noOfProjects = projects.length;
 
   return loading && projects === null ? (
     <Spinner />
@@ -23,9 +25,15 @@ const DashboardMain = ({
       {/* <!-- Project Headlines --> */}
 
       <div className='dashboard-main-pitcher'>
-        <p className='dashboard-main-pitcher-active'>
-          You have ? active projects
-        </p>
+        {noOfProjects > 1 ? (
+          <p className='dashboard-main-pitcher-active'>
+            You have {projects.length} active projects
+          </p>
+        ) : (
+          <p className='dashboard-main-pitcher-active'>
+            You have {projects.length} active project
+          </p>
+        )}
         <div className='project-list'>
           {projects
             ? projects.map((project) => (
@@ -45,11 +53,11 @@ const DashboardMain = ({
 
 DashboardMain.propTypes = {
   getProjectsForUser: PropTypes.func.isRequired,
-  project: PropTypes.object.isRequired,
+  projects: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  project: state.project,
+  projects: state.projects,
 });
 
 export default connect(mapStateToProps, { getProjectsForUser })(DashboardMain);
