@@ -1117,6 +1117,7 @@ footer .footer-social {
   top: 3%;
   right: -1rem;
   color: #fff;
+  cursor: pointer;
 }
 
 #pitch-journey .video .video-content {
@@ -1211,4 +1212,69 @@ footer .footer-social {
 
 .success-page .btn {
   border: 3px solid #fff;
+}
+
+/* React-player styling */
+.vid-container {
+  background: rgba(244, 152, 0, 0.8);
+  height: 100vh;
+}
+
+.tutorial-video {
+  margin: auto;
+  position: relative;
+}
+
+.controls-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.controls-wrapper h3 {
+  color: #939598;
+  padding: 1rem;
+}
+
+.playback-controls {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.playback-controls i {
+  color: #939598;
+  transform: scale(0.8);
+}
+
+.playback-controls i:hover {
+  color: #fff;
+  transform: scale(1);
+}
+
+.screen-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.screen-controls i {
+  color: #939598;
+  transform: scale(0.8);
+}
+
+.screen-controls i:hover {
+  color: #fff;
+  transform: scale(1);
 }

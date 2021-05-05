@@ -7,6 +7,8 @@ import { getProject } from '../../actions/project';
 import imageDefault from '../../imgs/builder.jpg';
 import Spinner from '../layout/Spinner';
 
+// @TODO - add auth functionality to allow project author to edit the project.
+
 const ProjectItem = ({ getProject, projects: { project, loading }, match }) => {
   useEffect(() => {
     console.log(match.params.id);
@@ -67,8 +69,7 @@ const ProjectItem = ({ getProject, projects: { project, loading }, match }) => {
 
 ProjectItem.propTypes = {
   getProject: PropTypes.func.isRequired,
-  project: PropTypes.object.isRequired,
-  // auth: PropTypes.object.isRequired,
+  projects: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

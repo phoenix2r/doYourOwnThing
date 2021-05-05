@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Pitcher1 from './pitcher/Pitcher1';
 import Pitcher2 from './pitcher/Pitcher2';
 import Pitcher3 from './pitcher/Pitcher3';
@@ -10,6 +11,7 @@ import Pitcher8 from './pitcher/Pitcher8';
 import Pitcher9 from './pitcher/Pitcher9';
 import PitcherSuccess from './pitcher/PitcherSuccess';
 import Stepindicator from '../layout/Stepindicator';
+import VideoModal from '../modals/VideoModal';
 
 const Pitcher = () => {
   const [formData, setFormData] = useState({
@@ -40,9 +42,11 @@ const Pitcher = () => {
     step: 1,
   });
 
-  // const [fieldErrors, setFieldErrors] = useState({
-  //   fieldError,
-  // });
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   const { step } = stepCount;
   const { username, email, password, password2, role } = formData;
@@ -105,25 +109,8 @@ const Pitcher = () => {
     });
   };
 
-  // In-line validation for the input fields
-  // const inLineValidate = (field, conditions) => {
-  //   if(!field.includes(conditions)) {
-  //     field.error = true;
-  //   }
-  // }
-
   // Handle standard form field changes
   const handleChange = (input) => (e) => {
-    // let condition = input.cTerm(input.cValue);
-    // if (e.target.value.length > 2) {
-    //   // setFormData({ ...formData, [input.name]: e.target.value });
-    //   input.error = false;
-    //   console.log('Success');
-    // } else {
-    //   console.log(e.target.value.length);
-    //   input.error = true;
-    //   console.log(input);
-    // }
     setFormData({ ...formData, [input]: e.target.value });
   };
 
@@ -256,7 +243,7 @@ const Pitcher = () => {
           </div>
 
           {/* <!-- Video Help --> */}
-          <div className='video'>
+          <div className='video' onClick={openModal}>
             <div className='video-box'></div>
             <div className='video-frame'></div>
             <div className='video-content'>
@@ -264,6 +251,7 @@ const Pitcher = () => {
               <h1 className='x-large-top'>SUPPORT</h1>
             </div>
           </div>
+          <VideoModal showModal={showModal} setShowModal={setShowModal} />
 
           {renderSwitch(values)}
         </div>

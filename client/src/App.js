@@ -17,6 +17,7 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+import TutorialVideo from './components/video/TutorialVideo';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -37,6 +38,7 @@ const App = () => {
           <Route exact path='/' component={Landing} />
           <Alert />
           <Switch>
+            {/* <Route exact path='/testvideo' component={TutorialVideo} /> */}
             <Route exact path='/pitcher' component={Pitcher} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/projects/:id' component={ProjectItem} />
