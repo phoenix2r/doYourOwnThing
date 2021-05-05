@@ -1,18 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { getProject } from '../../actions/project';
 import imageDefault from '../../imgs/builder.jpg';
+import Spinner from '../layout/Spinner';
 
-const ProjectItem = ({ project }) => {
-  // useEffect(() => {
-  //   console.log(match.params.id);
-  //   getProject(match.params.id);
-  // }, [getProject]);
+// @TODO - add auth functionality to allow project author to edit the project.
 
-  return (
+const ProjectItem = ({ getProject, projects: { project, loading }, match }) => {
+  useEffect(() => {
+    console.log(match.params.id);
+    getProject(match.params.id);
+  }, [getProject]);
+
+  return loading || project === null ? (
+    <Spinner />
+  ) : (
     <Fragment>
       <section className='project-single'>
         <div className='container'>

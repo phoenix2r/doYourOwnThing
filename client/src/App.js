@@ -7,7 +7,8 @@ import Pitcher from './components/auth/Pitcher';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
-import ProjectItem from './components/projects/ProjectItem';
+// import ProjectItem from './components/projects/ProjectItem';
+import Project from './components/projects/Project';
 import EditProfile from './components/auth/profile-forms/EditProfile';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
@@ -41,7 +42,8 @@ const App = () => {
             {/* <Route exact path='/testvideo' component={TutorialVideo} /> */}
             <Route exact path='/pitcher' component={Pitcher} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/projects/:id' component={ProjectItem} />
+            <Route exact path='/projects/:id' component={Project} />
+            {/* <Route exact path='/projects/:id' component={ProjectItem} /> */}
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
             <PrivateRoute exact path='/edit-profile' component={EditProfile} />
           </Switch>
