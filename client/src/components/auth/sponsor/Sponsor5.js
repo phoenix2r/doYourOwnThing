@@ -2,20 +2,22 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createPitcherProfile } from '../../../actions/pitcher-profile';
 import { setAlert } from '../../../actions/alert';
 
-const Pitcher7 = (props) => {
+const Sponsor5 = (props) => {
+  const { nextStep, prevStep, handleChange, values, setAlert } = props;
   const {
-    nextStep,
-    prevStep,
-    handleChange,
-    values,
-    history,
-    createPitcherProfile,
-    setAlert,
-  } = props;
-  const { firstName, lastName, addressLine1, town, postcode } = values;
+    firstName,
+    lastName,
+    addressLine1,
+    town,
+    postcode,
+    bio,
+    organisation,
+    sponsorLogo,
+    interests,
+    visibility,
+  } = values;
 
   const validatePostCode = (postcode) => {
     let re = /^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/;
@@ -38,17 +40,13 @@ const Pitcher7 = (props) => {
         'danger'
       );
     } else {
-      createPitcherProfile(
-        { firstName, lastName, addressLine1, town, postcode },
-        history
-      );
       nextStep();
     }
     console.log(values);
   };
 
   return (
-    <form className='form form-pitch p-4'>
+    <form className='form form-sponsor p-4'>
       <h2 className='form-heading'>
         {values.step}. GREAT - JUST A FEW MORE DETAILS
       </h2>
@@ -104,11 +102,8 @@ const Pitcher7 = (props) => {
   );
 };
 
-Pitcher7.propTypes = {
-  createPitcherProfile: PropTypes.func.isRequired,
+Sponsor5.propTypes = {
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(null, { createPitcherProfile, setAlert })(
-  withRouter(Pitcher7)
-);
+export default connect(null, { setAlert })(withRouter(Sponsor5));

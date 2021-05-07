@@ -4,7 +4,7 @@ import { setAlert } from '../../../actions/alert';
 import { register } from '../../../actions/auth';
 import PropTypes from 'prop-types';
 
-const Pitcher1 = (props) => {
+const Sponsor1 = (props) => {
   const { nextStep, handleChange, values, setAlert, register } = props;
   const { username, email, password, password2, role, step } = values;
   const isRegistered = useSelector((state) => state.auth.isAuthenticated);
@@ -51,7 +51,7 @@ const Pitcher1 = (props) => {
   };
 
   return (
-    <form className='form form-pitch p-4'>
+    <form className='form form-sponsor p-4'>
       <h2 className='form-heading'>{step}: LET US KNOW WHO YOU ARE</h2>
 
       <div className='form-group'>
@@ -99,7 +99,7 @@ const Pitcher1 = (props) => {
       <div className='form-group'>
         <div className='role-check' onChange={handleChange('role')}>
           <label>
-            Please confirm that you want to pitch rather than sponsor projects:
+            Please confirm that you want to sponsor rather than pitch projects:
           </label>
           <p>
             <input type='radio' value='sponsor' name='role' />
@@ -127,7 +127,7 @@ const Pitcher1 = (props) => {
   );
 };
 
-Pitcher1.propTypes = {
+Sponsor1.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
@@ -137,62 +137,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert, register })(Pitcher1);
-
-// {fields.map((field, i) => (
-//   <div className='form-group' key={i}>
-//     <label>{field.label}</label>
-//     {/* {field.error ? <div className='error-msg'>{field.errMsg}</div> : ''} */}
-//     <input
-//       // className={field.error ? 'error' : ''}
-//       type={field.type}
-//       placeholder={field.placeholder}
-//       onChange={handleChange(field)}
-//       defaultValue={field.value}
-//     />
-//   </div>
-// ))}
-
-// const fields = [
-//   {
-//     name: 'username',
-//     value: username,
-//     label: 'Enter a username:',
-//     type: 'text',
-//     placeholder: 'User Name',
-//     error: false,
-//     errMsg: 'Field must not be empty',
-//   },
-//   {
-//     name: 'email',
-//     value: email,
-//     label: 'Enter a valid email address:',
-//     type: 'text',
-//     placeholder: 'Email Address',
-//     error: false,
-//     errMsg: 'Field must be a valid address',
-//   },
-//   {
-//     name: 'password',
-//     value: password,
-//     label:
-//       'Choose a password for your account - must be at least 8 characters long:',
-//     type: 'password',
-//     placeholder: 'Password',
-//     error: false,
-//     errMsg: 'Password must include special characters',
-//   },
-//   {
-//     name: 'password2',
-//     value: password2,
-//     label: 'Please confirm your password:',
-//     type: 'password',
-//     placeholder: 'Confirm Password',
-//     error: false,
-//     errMsg: 'Passwords must match',
-//   },
-// ];
-
-// const radioField = {
-//   name: 'role',
-// };
+export default connect(mapStateToProps, { setAlert, register })(Sponsor1);

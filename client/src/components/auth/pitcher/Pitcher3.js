@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Select from 'react-select';
+import { setAlert } from '../../../actions/alert';
+import PropTypes from 'prop-types';
 
 const Pitcher3 = (props) => {
-  const { nextStep, prevStep, handleSelectChange, values } = props;
+  const { nextStep, prevStep, handleSelectChange, values, setAlert } = props;
 
   const purposeOptions = [
     {
@@ -23,6 +26,7 @@ const Pitcher3 = (props) => {
     },
   ];
 
+  // Styling for react-select dropdown
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -40,8 +44,12 @@ const Pitcher3 = (props) => {
 
   const submitStep = (e) => {
     e.preventDefault();
+    if (values.purpose != '') {
+      nextStep();
+    } else {
+      setAlert('Please select an option to continue', 'danger');
+    }
     console.log(values);
-    nextStep();
   };
 
   return (
@@ -55,6 +63,7 @@ const Pitcher3 = (props) => {
         </label>
         <Select
           styles={customStyles}
+          // value={purposeOptions[0]}
           defaultValue={purposeOptions[0]}
           name='purpose'
           options={purposeOptions}
@@ -75,4 +84,8 @@ const Pitcher3 = (props) => {
   );
 };
 
-export default Pitcher3;
+Pitcher3.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert })(Pitcher3);

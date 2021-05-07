@@ -20,6 +20,7 @@ const Pitcher9 = (props) => {
     projectName,
     sector,
     description,
+    keywords,
     video,
     gofundme,
   } = values;
@@ -33,6 +34,7 @@ const Pitcher9 = (props) => {
       projectName,
       sector,
       description,
+      keywords,
       video,
       gofundme,
     });
@@ -40,14 +42,10 @@ const Pitcher9 = (props) => {
     nextStep();
   };
 
-  // if (projects.length > 1) {
-  //   nextStep();
-  // }
-
   return (
     <form className='form form-pitch p-4'>
       <h2 className='form-heading'>
-        {values.step}. UPLOAD COMPLETE! NOW FOR THE FINAL STEP
+        {values.step}. YOUR PROFILE HAS BEEN CREATED! NOW FOR THE FINAL STEP
       </h2>
       <div className='form-group'>
         <label>

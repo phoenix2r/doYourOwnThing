@@ -6,10 +6,11 @@ const TutorialVideo = () => {
     <div className='container vid-container'>
       <div className='tutorial-video'>
         <ReactPlayer
-          url='https://youtu.be/GfE3SZEnyD0'
+          url='https://youtu.be/S7FIvGNjX5o'
           config={{
+            controls: true,
             youtube: {
-              playerVars: {},
+              playerVars: { modestbranding: 1 },
             },
           }}
         />

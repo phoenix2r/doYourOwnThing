@@ -3,19 +3,25 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
-import { getCurrentProfile } from '../../actions/pitcher-profile';
+import { getCurrentPitcherProfile } from '../../actions/pitcher-profile';
+import { getCurrentSponsorProfile } from '../../actions/sponsor-profile';
 import DashboardMain from './DashboardMain';
 import DashboardActions from './DashboardActions';
 import imageDefault from '../../imgs/builder.jpg';
 
 const Dashboard = ({
-  getCurrentProfile,
+  getCurrentSponsorProfile,
+  getCurrentPitcherProfile,
   auth: { user },
   profile: { profile, loading },
 }) => {
   useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
+    if (user.role === 'sponsor') {
+      getCurrentSponsorProfile();
+    } else {
+      getCurrentPitcherProfile();
+    }
+  }, [profile]);
 
   return loading && profile === null ? (
     <Spinner />
@@ -68,7 +74,8 @@ const Dashboard = ({
 };
 
 Dashboard.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
+  getCurrentPitcherProfile: PropTypes.func.isRequired,
+  getCurrentSponsorProfile: PropTypes.func.isRequired,
   // getProjects: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
@@ -79,4 +86,7 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, {
+  getCurrentPitcherProfile,
+  getCurrentSponsorProfile,
+})(Dashboard);

@@ -68,6 +68,7 @@ export const createProject = (
     projectName,
     sector,
     description,
+    keywords,
     video,
     gofundme,
   },
@@ -88,6 +89,7 @@ export const createProject = (
     projectName,
     sector,
     description,
+    keywords,
     video,
     gofundme,
   });

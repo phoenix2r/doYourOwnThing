@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setAlert } from '../../../actions/alert';
 import PropTypes from 'prop-types';
 
-const Pitcher4 = (props) => {
+const Sponsor3 = (props) => {
   const { nextStep, prevStep, handleChange, values, setAlert } = props;
 
   const submitStep = (e) => {
@@ -17,18 +17,27 @@ const Pitcher4 = (props) => {
   };
 
   return (
-    <form className='form form-pitch p-4'>
+    <form className='form form-sponsor p-4'>
       <h2 className='form-heading'>
-        {values.step}. WHAT WOULD YOU LIKE TO CALL YOUR BUSINESS?
+        {values.step}. PLEASE TELL US MORE ABOUT YOUR BUSINESS?
       </h2>
       <div className='form-group'>
-        <label>Enter the name of your business:</label>
+        <label>Enter the name of your organisation:</label>
         <input
           type='text'
-          placeholder='Business name'
+          placeholder='Organisation name'
           required
-          onChange={handleChange('projectName')}
-          defaultValue={values.projectName}
+          onChange={handleChange('organisation')}
+          defaultValue={values.organisation}
+        />
+      </div>
+      <div className='form-group'>
+        <label>Upload your organisation's logo if you have one:</label>
+        <input
+          type='text'
+          placeholder='Logo'
+          onChange={handleChange('sponsorLogo')}
+          defaultValue={values.sponsorLogo}
         />
       </div>
       <div className='form-buttons'>
@@ -43,8 +52,8 @@ const Pitcher4 = (props) => {
   );
 };
 
-Pitcher4.propTypes = {
+Sponsor3.propTypes = {
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Pitcher4);
+export default connect(null, { setAlert })(Sponsor3);

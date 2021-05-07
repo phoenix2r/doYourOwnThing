@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Pitcher1 from './pitcher/Pitcher1';
 import Pitcher2 from './pitcher/Pitcher2';
 import Pitcher3 from './pitcher/Pitcher3';
@@ -33,6 +32,7 @@ const Pitcher = () => {
     projectName: '',
     sector: '',
     description: '',
+    keywords: [],
     video: '',
     gofundme: '',
     socialLinks: '',
@@ -42,10 +42,16 @@ const Pitcher = () => {
     step: 1,
   });
 
-  const [showModal, setShowModal] = useState(false);
+  const [modalState, setModalState] = useState({
+    showModal: false,
+    videoUrl: '',
+  });
 
   const openModal = () => {
-    setShowModal((prev) => !prev);
+    setModalState({
+      showModal: !modalState.showModal,
+    });
+    console.log(modalState.showModal);
   };
 
   const { step } = stepCount;
@@ -66,6 +72,7 @@ const Pitcher = () => {
     projectName,
     sector,
     description,
+    keywords,
     video,
     gofundme,
   } = formData;
@@ -89,6 +96,7 @@ const Pitcher = () => {
     projectName,
     sector,
     description,
+    keywords,
     video,
     gofundme,
   };
@@ -112,11 +120,18 @@ const Pitcher = () => {
   // Handle standard form field changes
   const handleChange = (input) => (e) => {
     setFormData({ ...formData, [input]: e.target.value });
+    console.log(input);
   };
 
   // Handle select form field changes
   const handleSelectChange = (selectValue) => {
     setFormData({ ...formData, [selectValue.id]: selectValue.value });
+  };
+
+  // Handle select form field changes
+  const handleMultiSelectChange = (selectValue) => {
+    let selectedWords = selectValue.map((i) => i.value);
+    setFormData({ ...formData, keywords: selectedWords });
   };
 
   // Handle file upload field changes
@@ -170,13 +185,14 @@ const Pitcher = () => {
             prevStep={prevStep}
             handleChange={handleChange}
             handleSelectChange={handleSelectChange}
+            handleMultiSelectChange={handleMultiSelectChange}
             values={values}
           />
         );
 
       case 6:
         return (
-          <Pitcher6
+          <Pitcher8
             nextStep={nextStep}
             prevStep={prevStep}
             handleChange={handleChange}
@@ -186,7 +202,7 @@ const Pitcher = () => {
 
       case 7:
         return (
-          <Pitcher7
+          <Pitcher6
             nextStep={nextStep}
             prevStep={prevStep}
             handleChange={handleChange}
@@ -196,7 +212,7 @@ const Pitcher = () => {
 
       case 8:
         return (
-          <Pitcher8
+          <Pitcher7
             nextStep={nextStep}
             prevStep={prevStep}
             handleChange={handleChange}
@@ -251,7 +267,10 @@ const Pitcher = () => {
               <h1 className='x-large-top'>SUPPORT</h1>
             </div>
           </div>
-          <VideoModal showModal={showModal} setShowModal={setShowModal} />
+          <VideoModal
+            showModal={modalState.showModal}
+            setShowModal={openModal}
+          />
 
           {renderSwitch(values)}
         </div>

@@ -104,4 +104,5 @@ export const logout = () => (dispatch) => {
   dispatch({ type: CLEAR_PROJECTS });
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
+  dispatch(setAlert('You are now logged out', 'success'));
 };

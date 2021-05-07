@@ -5,6 +5,13 @@ const SponsorSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
+  organisation: {
+    type: String,
+  },
+  sponsorLogo: {
+    data: Buffer,
+    type: String,
+  },
   fullName: {
     firstName: {
       type: String,
@@ -28,13 +35,15 @@ const SponsorSchema = new mongoose.Schema({
       required: true,
     },
   },
-  interests: [
-    {
-      tag: String,
-    },
-  ],
+  interests: {
+    type: [String],
+  },
   bio: {
     type: String,
+  },
+  visibility: {
+    type: String,
+    required: true,
   },
 });
 

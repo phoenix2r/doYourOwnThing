@@ -28,6 +28,7 @@ router.post(
         .not()
         .isEmpty(),
       check('description', 'Please describe your project').not().isEmpty(),
+      check('keywords', 'Please add at least one keyword').not().isEmpty(),
       check('video', 'Please upload a video pitch').not().isEmpty(),
       check('gofundme', 'Please provide your Go Fund Me link').not().isEmpty(),
     ],
@@ -49,6 +50,7 @@ router.post(
         projectName: req.body.projectName,
         sector: req.body.sector,
         description: req.body.description,
+        keywords: req.body.keywords,
         video: req.body.video,
         gofundme: req.body.gofundme,
         socialLinks: req.body.socialLinks,
@@ -118,6 +120,72 @@ router.get('/user/:userid', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// @route   GET api/projects/:tags
+// @desc    Get all the projects by a tags search
+// @access  Public
+// router.get('/user/:tags', async (req, res) => {
+//   try {
+//     const projects = await Project.find({
+//       tags: req.params.tags,
+//     }).sort({ date: -1 });
+
+//     if (!projects) {
+//       return res
+//         .status(404)
+//         .json({ msg: 'There are no projects that match these tags' });
+//     }
+//     res.json(projects);
+//   } catch (err) {
+//     console.error(err.message);
+//     if (err.kind === 'ObjectId') {
+//       return res.status(404).json({ msg: 'Projects not found' });
+//     }
+//     res.status(500).send('Server Error');
+//   }
+// });
+
+// @route   GET api/projects/:tags
+// @desc    Get all the projects by a tags search
+// @access  Public
+// router.get('/search/:querystring', async (req, res) => {
+// router.get('/sponsor/:userid', async (req, res) => {
+//   try {
+//     // pull data from search bar
+//     // ...
+//     const sponsor = await User.get({
+//       userid: req.params.userid,
+//     });
+//     // search DB for interests/tags/whatever else you can search against
+//     const projects = sponsor.interests.map((tagid)=>{
+//       return await Project.find({
+//         tag: tagid,
+//       }).sort({ date: -1 });
+//     });
+
+//     const projects = await Project.find({
+//       tags: {$regex : qeurystring},
+//     }).sort({ date: -1 });
+
+//     // page that displays the results in the format you like
+//     projects.map((project) => {
+//       <h3>project.name</h3>
+//     });
+
+//     if (!projects) {
+//       return res
+//         .status(404)
+//         .json({ msg: 'There are no projects that match these tags' });
+//     }
+//     res.json(projects);
+//   } catch (err) {
+//     console.error(err.message);
+//     if (err.kind === 'ObjectId') {
+//       return res.status(404).json({ msg: 'Projects not found' });
+//     }
+//     res.status(500).send('Server Error');
+//   }
+// });
 
 // @route   DELETE api/projects/:id
 // @desc    Delete a project

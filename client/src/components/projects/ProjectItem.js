@@ -46,7 +46,12 @@ const ProjectItem = ({ project }) => {
                 Created by {project.username}, on
                 <Moment format='DD/MM/YYYY'>{project.startDate}</Moment>
               </div>
-              <div className='project-single-tags'>Tags: {project.sector}</div>
+              <div className='project-single-tags'>
+                Tags: {project.sector},
+                {project.keywords.map((str) => (
+                  <span> {str},</span>
+                ))}
+              </div>
               <img id='project-author-avatar' src={imageDefault} alt='' />
             </div>
             <div className='project-single-description'>

@@ -1,12 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../../actions/alert';
+import PropTypes from 'prop-types';
 
 const Pitcher8 = (props) => {
-  const { nextStep, prevStep, handleChange, values } = props;
+  const { nextStep, prevStep, handleChange, values, setAlert } = props;
 
   const submitStep = (e) => {
     e.preventDefault();
+    if (values.video != '') {
+      nextStep();
+    } else {
+      setAlert(
+        'Please paste the youtube code for your video in the field below',
+        'danger'
+      );
+    }
     console.log(values);
-    nextStep();
   };
 
   return (
@@ -15,8 +25,10 @@ const Pitcher8 = (props) => {
         {values.step}. ALMOST THERE - UPLOAD YOUR PITCH
       </h2>
       <div className='form-group'>
-        <span>Upload a video to really make your pitch sing</span>
-        <span>Click the folder icon to browse your computer</span>
+        <span>Connect a video to really make your pitch sing</span>
+        <span>
+          Paste the address of your pitch on youtube in the field below:
+        </span>
         <input
           type='text'
           placeholder='Folder Icon'
@@ -37,4 +49,8 @@ const Pitcher8 = (props) => {
   );
 };
 
-export default Pitcher8;
+Pitcher8.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert })(Pitcher8);

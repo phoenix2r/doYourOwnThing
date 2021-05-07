@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearProjects } from '../../../actions/project';
 
-const PitcherSuccess = ({ isAuthenticated, projects, clearProjects }) => {
+const SponsorSuccess = ({ isAuthenticated, projects, clearProjects }) => {
   const goDashboard = () => {
     clearProjects();
   };
@@ -28,7 +28,7 @@ const PitcherSuccess = ({ isAuthenticated, projects, clearProjects }) => {
   );
 };
 
-PitcherSuccess.propTypes = {
+SponsorSuccess.propTypes = {
   clearProjects: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 };
@@ -38,4 +38,4 @@ const mapStateToProps = (state) => ({
   projects: state.projects.projects,
 });
 
-export default connect(mapStateToProps, { clearProjects })(PitcherSuccess);
+export default connect(mapStateToProps, { clearProjects })(SponsorSuccess);

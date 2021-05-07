@@ -8,9 +8,9 @@ import { logout } from '../../actions/auth';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <li>
-      <a onClick={logout} href='#!'>
+      <Link onClick={logout} to='/'>
         Logout
-      </a>
+      </Link>
     </li>
   );
 
@@ -29,7 +29,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </h1>
       <ul>
         <li>
-          <Link to='!#'>SPONSOR</Link>
+          <Link to='/sponsor'>SPONSOR</Link>
         </li>
         <li>
           <Link to='/pitcher'>PITCH</Link>

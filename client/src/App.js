@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Socialbar from './components/layout/Socialbar';
 import Pitcher from './components/auth/Pitcher';
+import Sponsor from './components/auth/Sponsor';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
@@ -18,7 +19,6 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
-import TutorialVideo from './components/video/TutorialVideo';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -41,6 +41,7 @@ const App = () => {
           <Switch>
             {/* <Route exact path='/testvideo' component={TutorialVideo} /> */}
             <Route exact path='/pitcher' component={Pitcher} />
+            <Route exact path='/sponsor' component={Sponsor} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/projects/:id' component={Project} />
             {/* <Route exact path='/projects/:id' component={ProjectItem} /> */}

@@ -4,9 +4,9 @@ import { setAlert } from './alert';
 import { GET_PROFILE, PROFILE_ERROR } from './types';
 
 // Get current user's profile
-export const getCurrentPitcherProfile = () => async (dispatch) => {
+export const getCurrentSponsorProfile = () => async (dispatch) => {
   try {
-    const res = await axios.get('/api/pitcher-profiles/me');
+    const res = await axios.get('/api/sponsor-profiles/me');
 
     dispatch({
       type: GET_PROFILE,
@@ -20,9 +20,20 @@ export const getCurrentPitcherProfile = () => async (dispatch) => {
   }
 };
 
-// Create or update a pitcher's profile
-export const createPitcherProfile = (
-  { firstName, lastName, addressLine1, town, postcode },
+// Create or update a sponsor's profile
+export const createSponsorProfile = (
+  {
+    firstName,
+    lastName,
+    addressLine1,
+    town,
+    postcode,
+    bio,
+    organisation,
+    sponsorLogo,
+    interests,
+    visibility,
+  },
   history,
   edit = false
 ) => async (dispatch) => {
@@ -40,10 +51,15 @@ export const createPitcherProfile = (
     addressLine1,
     town,
     postcode,
+    bio,
+    organisation,
+    sponsorLogo,
+    interests,
+    visibility,
   });
 
   try {
-    const res = await axios.post('/api/pitcher-profiles', body, config);
+    const res = await axios.post('/api/sponsor-profiles', body, config);
 
     dispatch({
       type: GET_PROFILE,

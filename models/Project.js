@@ -4,92 +4,95 @@ const Schema = mongoose.Schema;
 const ProjectSchema = new Schema({
   projectAuthor: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
   amountReq: {
     type: Number,
-    required: true
+    required: true,
   },
-  amountSoFar:{
-    type: Number
+  amountSoFar: {
+    type: Number,
   },
   purpose: {
-    type: String
+    type: String,
   },
   projectName: {
     type: String,
-    required: true
+    required: true,
   },
   sector: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
+  },
+  keywords: {
+    type: [String],
   },
   // The video will be an embedded url
   video: {
     type: String,
-    required: true
+    required: true,
   },
   startDate: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   endDate: {
-    type: Date
+    type: Date,
   },
   gofundme: {
     type: String,
-    required: true
+    required: true,
   },
   socialLinks: [
     {
       social: {
-        type: String
-      }
-    }
+        type: String,
+      },
+    },
   ],
   sponsors: [
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
-      }
-    }
+        ref: 'user',
+      },
+    },
   ],
   // Possible functionality for interaction later
   likes: [
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
-      }
-    }
+        ref: 'users',
+      },
+    },
   ],
   comments: [
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'users',
       },
       text: {
         type: String,
-        required: true
+        required: true,
       },
       name: {
-        type: String
+        type: String,
       },
       avatar: {
-        type: String
+        type: String,
       },
       date: {
         type: Date,
-        default: Date.now
-      }
-    }
-  ]
+        default: Date.now,
+      },
+    },
+  ],
 });
 
 module.exports = Project = mongoose.model('project', ProjectSchema);

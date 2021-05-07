@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setAlert } from '../../../actions/alert';
 import PropTypes from 'prop-types';
 
-const Pitcher4 = (props) => {
+const Sponsor4 = (props) => {
   const { nextStep, prevStep, handleChange, values, setAlert } = props;
 
   const submitStep = (e) => {
@@ -17,19 +17,25 @@ const Pitcher4 = (props) => {
   };
 
   return (
-    <form className='form form-pitch p-4'>
+    <form className='form form-sponsor p-4'>
       <h2 className='form-heading'>
-        {values.step}. WHAT WOULD YOU LIKE TO CALL YOUR BUSINESS?
+        {values.step}. PLEASE TELL US MORE ABOUT YOURSELF?
       </h2>
       <div className='form-group'>
-        <label>Enter the name of your business:</label>
-        <input
-          type='text'
-          placeholder='Business name'
+        <label>
+          In a few words, give us a biography of you or your work (
+          {250 - values.bio.length} characters left):
+        </label>
+        <textarea
+          name='bio'
+          id='bio'
+          maxLength='250'
+          cols='30'
+          rows='5'
           required
-          onChange={handleChange('projectName')}
-          defaultValue={values.projectName}
-        />
+          onChange={handleChange('bio')}
+          defaultValue={values.bio}
+        ></textarea>
       </div>
       <div className='form-buttons'>
         <div className='btn btn-secondary' onClick={prevStep}>
@@ -43,8 +49,8 @@ const Pitcher4 = (props) => {
   );
 };
 
-Pitcher4.propTypes = {
+Sponsor4.propTypes = {
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Pitcher4);
+export default connect(null, { setAlert })(Sponsor4);
