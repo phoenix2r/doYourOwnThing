@@ -41,7 +41,8 @@ const Projects = ({ getProjects, project: { projects, loading } }) => {
             </div>
             <div className='project-single-atts'>
               <div className='project-single-created'>
-                Created by Project Author, ? days ago
+                Created by Project Author, on{' '}
+                <Moment format='DD/MM/YYYY'>{startDate}</Moment>
               </div>
               <div className='project-single-tags'>
                 A number of tags for the project

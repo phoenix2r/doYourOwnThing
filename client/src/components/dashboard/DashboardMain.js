@@ -9,12 +9,16 @@ import ProjectHeadline from '../projects/ProjectHeadline';
 const DashboardMain = ({
   getProjectsForUser,
   projects: { projects, loading },
-  userid,
+  user,
+  profile,
 }) => {
   useEffect(() => {
-    console.log(userid);
-    getProjectsForUser(userid);
-  }, [getProjectsForUser]);
+    if (user.role === 'sponsor') {
+      console.log(profile);
+    } else {
+      getProjectsForUser(user._id);
+    }
+  }, [projects]);
 
   const noOfProjects = projects.length;
 
@@ -25,7 +29,7 @@ const DashboardMain = ({
       {/* <!-- Project Headlines --> */}
 
       <div className='dashboard-main-pitcher'>
-        {noOfProjects > 1 ? (
+        {noOfProjects != 1 ? (
           <p className='dashboard-main-pitcher-active'>
             You have {projects.length} active projects
           </p>
@@ -44,9 +48,15 @@ const DashboardMain = ({
       </div>
 
       {/* <!-- Create more projects --> */}
-      <Link className='btn btn-primary btn-create' to='!#'>
-        Create a new project +
-      </Link>
+      {user.role === 'sponsor' ? (
+        <Link className='btn btn-primary btn-create' to='!#'>
+          Look for a project to sponsor
+        </Link>
+      ) : (
+        <Link className='btn btn-primary btn-create' to='!#'>
+          Create a new project +
+        </Link>
+      )}
     </Fragment>
   );
 };

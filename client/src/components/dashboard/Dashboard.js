@@ -52,7 +52,11 @@ const Dashboard = ({
               </ul>
             </div>
           </div>
-          {profile ? <DashboardMain userid={user._id} /> : <Spinner />}
+          {profile ? (
+            <DashboardMain user={user} profile={profile} />
+          ) : (
+            <Spinner />
+          )}
           {profile !== null ? (
             <Fragment>
               <DashboardActions />

@@ -21,7 +21,7 @@ const ProjectHeadline = ({
 
         <div className='project-headline-progress'>
           <p className='progress-goal'>Raised so far: £{amountSoFar}</p>
-          <p className='progress-text'>You are value of the way there!</p>
+          <p className='progress-text'>You are on your way!</p>
           <div className='progress-bar'>
             <div className='progress-bar-inner'></div>
           </div>

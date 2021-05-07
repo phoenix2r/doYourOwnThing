@@ -43,7 +43,7 @@ const ProjectItem = ({ project }) => {
             </div>
             <div className='project-single-atts'>
               <div className='project-single-created'>
-                Created by {project.username}, on
+                Created by {project.username}, on {''}
                 <Moment format='DD/MM/YYYY'>{project.startDate}</Moment>
               </div>
               <div className='project-single-tags'>
