@@ -1,0 +1,85 @@
+// Form styling
+.form {
+  color: #fff;
+  max-width: 75%;
+  margin: 4.5rem auto 1rem auto;
+
+  input.error {
+    border: 3px solid $forhousing-dark-orange;
+  }
+
+  .error-msg {
+    background: rgba($forhousing-dark-orange, $alpha: 0.6);
+    padding: 0.5rem;
+  }
+
+  &-pitch,
+  &-login {
+    border: 5px solid $forhousing-blue;
+    background: rgba($color: $forhousing-orange, $alpha: 0.8);
+
+    input:focus-visible {
+      outline-color: $forhousing-blue;
+    }
+  }
+
+  &-sponsor {
+    border: 5px solid $forhousing-orange;
+    background: rgba($color: $forhousing-blue, $alpha: 0.8);
+
+    input:focus-visible {
+      outline-color: $forhousing-orange;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    // border: none;
+  }
+
+  .form-buttons {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    .btn {
+      min-width: 200px;
+      text-align: center;
+      border: solid 3px #fff;
+    }
+  }
+}
+
+::placeholder {
+  color: $forhousing-common-grey;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.role-check {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+input[type='radio'] {
+  margin-right: 1rem;
+}

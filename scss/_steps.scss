@@ -1,0 +1,94 @@
+// Circular divs
+.circle {
+  border-radius: 50%;
+  border: solid 5px $forhousing-orange;
+  background: #fff;
+}
+
+.circle-sponsor {
+  border-radius: 50%;
+  border: solid 5px $forhousing-blue;
+  background: #fff;
+}
+
+.progress-steps {
+  width: 100%;
+  max-width: $max-width;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .step {
+    height: 5rem;
+    width: 5rem;
+    position: relative;
+
+    .arrow {
+      position: absolute;
+      top: 25%;
+      left: -10%;
+      width: 1rem;
+      height: 2rem;
+      border-top: 1rem solid transparent;
+      border-left: 1.5rem solid $forhousing-blue;
+      border-bottom: 1rem solid transparent;
+    }
+    .arrow-sponsor {
+      position: absolute;
+      top: 25%;
+      left: -10%;
+      width: 1rem;
+      height: 2rem;
+      border-top: 1rem solid transparent;
+      border-left: 1.5rem solid $forhousing-orange;
+      border-bottom: 1rem solid transparent;
+    }
+
+    .arrow-number {
+      color: #fff;
+      position: absolute;
+      top: 30%;
+      left: -5%;
+    }
+
+    &-content {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      i {
+        color: $forhousing-blue;
+
+        .sponsor {
+          color: $forhousing-orange;
+        }
+      }
+
+      .step-title {
+        color: $forhousing-orange;
+      }
+      .step-title-sponsor {
+        color: $forhousing-blue;
+      }
+    }
+  }
+
+  .active-step,
+  .active-step-sponsor {
+    transform: scale(1.2);
+  }
+
+  .active-step.circle {
+    border: solid 5px $forhousing-blue;
+  }
+  .active-step-sponsor.circle {
+    border: solid 5px $forhousing-orange;
+  }
+}

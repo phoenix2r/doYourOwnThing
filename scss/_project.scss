@@ -1,0 +1,101 @@
+// Styling for single project pages
+.project-single {
+  margin-top: 5rem;
+  color: $forhousing-common-grey;
+
+  &-title {
+    text-align: center;
+    color: $forhousing-orange;
+    font-size: 2.5rem;
+  }
+
+  &-video {
+    margin: auto;
+    img {
+      max-width: 1024px;
+    }
+  }
+
+  &-details {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 2rem;
+    max-width: 1024px;
+    margin: auto;
+  }
+
+  .sponsor-box {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 3;
+    background: $forhousing-orange;
+    border: 3px solid $forhousing-blue;
+    color: #fff;
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    span {
+      font-size: 0.8rem;
+    }
+
+    .btn-sponsor {
+      border: 3px solid #fff;
+    }
+  }
+
+  &-totals {
+    grid-column: 1 / span 3;
+    grid-row: 4 / span 1;
+  }
+
+  &-atts {
+    margin-top: 2rem;
+    grid-column: 5 / span 3;
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1rem;
+
+    .project-single-created {
+      grid-column: 1 / span 4;
+      grid-row: 1 / span 1;
+      text-align: right;
+      font-size: 1.2rem;
+    }
+    .project-single-tags {
+      grid-column: 1 / span 4;
+      grid-row: 2 / span 1;
+      text-align: right;
+    }
+
+    #project-author-avatar {
+      grid-column: 5 / span 1;
+      grid-row: 1 / span 2;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &-description {
+    grid-column: 4 / span 4;
+    grid-row: 3 / span 3;
+    text-align: right;
+    padding-top: 1rem;
+    border-top: solid 1px $forhousing-orange;
+    overflow: scroll;
+  }
+
+  .progress-bar {
+    grid-column: 1 / span 3;
+    grid-row: 5 / span 1;
+  }
+}
+
+// For use in form to give a white background
+.white-box {
+  background: #fff;
+}

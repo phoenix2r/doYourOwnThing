@@ -21,7 +21,7 @@ const Dashboard = ({
     } else {
       getCurrentPitcherProfile();
     }
-  }, [profile]);
+  }, []);
 
   return loading && profile === null ? (
     <Spinner />

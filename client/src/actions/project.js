@@ -42,6 +42,40 @@ export const getProjectsForUser = (userid) => async (dispatch) => {
   }
 };
 
+// Get projects associated with a specific user (sponsor)
+export const getProjectsAssocWithUser = (sponsorid) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/projects/sponsor/${sponsorid}`);
+
+    dispatch({
+      type: GET_PROJECTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROJECT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Get projects that match a user's interests
+export const getProjectsByInterests = (sponsorid) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/projects/match/${sponsorid}`);
+
+    dispatch({
+      type: GET_PROJECTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROJECT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
 // Get one project by id
 export const getProject = (id) => async (dispatch) => {
   try {

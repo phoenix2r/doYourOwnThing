@@ -8,7 +8,6 @@ import Sponsor from './components/auth/Sponsor';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
-// import ProjectItem from './components/projects/ProjectItem';
 import Project from './components/projects/Project';
 import EditProfile from './components/auth/profile-forms/EditProfile';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -18,7 +17,7 @@ import store from './store';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
-import './App.css';
+import './style.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

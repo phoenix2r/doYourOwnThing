@@ -1,0 +1,29 @@
+// Alert stylings
+.alert {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  i {
+    line-height: 1.6;
+    cursor: pointer;
+  }
+
+  i:hover {
+    transform: scale(1.3);
+  }
+}
+
+.alert-danger {
+  border: 2px solid $forhousing-dark-orange;
+  background: rgba($color: $forhousing-dark-orange, $alpha: 0.8);
+}
+
+.alert-success {
+  border: 2px solid $forhousing-green;
+  background: rgba($color: $forhousing-green, $alpha: 0.8);
+}

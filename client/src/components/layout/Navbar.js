@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const authLinks = (
     <li>
       <Link onClick={logout} to='/'>
@@ -37,15 +37,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <li>
           <Link to='!#'>ABOUT</Link>
         </li>
-        {/* <!-- Use for housing icon here --> */}
-        <li>
-          <Link to='/dashboard'>DASHBOARD</Link>
-        </li>
-        {/* Special button className here */}
+        {user ? (
+          <li>
+            <Link to='/dashboard'>DASHBOARD</Link>
+          </li>
+        ) : (
+          ''
+        )}
+
         {!loading && (
           <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
         )}
-        {/* <!-- Search icon here --> */}
         <li>
           <Link to='!#'>Search</Link>
         </li>

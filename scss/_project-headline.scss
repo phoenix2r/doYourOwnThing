@@ -1,0 +1,67 @@
+// Project Headline for use in dashboards and searches
+.project-headline {
+  margin: 1rem auto;
+  border: 2px solid $forhousing-blue;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  color: $forhousing-common-grey;
+
+  &-headers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+  }
+  &-title {
+    grid-column: 1 / span 2;
+    color: $forhousing-orange;
+  }
+  &-totals {
+    text-align: center;
+    padding: 1rem;
+    border-left: 1px solid $forhousing-orange;
+    border-right: 1px solid $forhousing-orange;
+  }
+  &-created {
+    grid-column: 4 / span 2;
+    text-align: end;
+  }
+
+  &-progress {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid $forhousing-orange;
+    border-bottom: 1px solid $forhousing-orange;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.5rem;
+
+    .progress-goal {
+    }
+    .progress-text {
+      text-align: end;
+    }
+  }
+
+  &-btns {
+    display: flex;
+    justify-content: flex-start;
+
+    .btn-create {
+      align-self: flex-end;
+    }
+  }
+}
+
+.progress-bar {
+  margin: 1rem 0;
+  width: 100%;
+  border: 2px solid $forhousing-orange;
+  padding: 0.2rem;
+  &-inner {
+    height: 1.5rem;
+    background: $forhousing-blue;
+    width: 50%;
+  }
+}

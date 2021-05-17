@@ -56,10 +56,8 @@ const ProjectSchema = new Schema({
   ],
   sponsors: [
     {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-      },
+      type: Schema.Types.ObjectId,
+      ref: 'user',
     },
   ],
   // Possible functionality for interaction later
@@ -67,7 +65,7 @@ const ProjectSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'user',
       },
     },
   ],
@@ -75,7 +73,7 @@ const ProjectSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'user',
       },
       text: {
         type: String,

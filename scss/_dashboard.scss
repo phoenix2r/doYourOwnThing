@@ -1,0 +1,62 @@
+// Dashboard styling
+.dashboard {
+  margin-top: 8rem;
+
+  .title-box {
+    margin: auto;
+    color: #fff;
+    padding: 1rem;
+  }
+  .dashboard-pitcher {
+    background: $forhousing-orange;
+    border: 3px solid $forhousing-blue;
+  }
+  .dashboard-sponsor {
+    background: $forhousing-blue;
+    border: 3px solid $forhousing-orange;
+  }
+
+  &-head {
+    display: flex;
+    justify-content: space-between;
+
+    .profile-pic {
+      display: flex;
+      flex-direction: column;
+      img {
+        max-width: 150px;
+        max-height: auto;
+      }
+      #profile-pic-edit {
+        text-align: center;
+        font-size: 0.8rem;
+        color: $forhousing-common-grey;
+      }
+    }
+
+    .dashboard-menu {
+      text-align: right;
+
+      h3 {
+        color: $forhousing-orange;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &-main-pitcher {
+    margin-top: 1rem;
+    border-top: solid 1px $forhousing-orange;
+    padding-top: 1rem;
+    &-active {
+      font-size: 1.2rem;
+      color: $forhousing-common-grey;
+      padding: 1rem;
+    }
+  }
+
+  .btn-create {
+    margin: 1rem auto;
+  }
+}

@@ -121,6 +121,28 @@ router.get('/user/:userid', async (req, res) => {
   }
 });
 
+// @route   GET api/projects/:sponsorid
+// @desc    Get all the projects that has a sponsorid in its sponsor array
+// @access  Public
+router.get('/sponsor/:sponsorid', async (req, res) => {
+  try {
+    const projects = await Project.find({
+      sponsors: req.params.sponsorid,
+    }).sort({ date: -1 });
+
+    if (projects.length === 0) {
+      return res.status(404).json({ msg: 'This sponsor has no projects' });
+    }
+    res.json(projects);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Projects not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
+
 // @route   GET api/projects/:tags
 // @desc    Get all the projects by a tags search
 // @access  Public
@@ -145,47 +167,38 @@ router.get('/user/:userid', async (req, res) => {
 //   }
 // });
 
-// @route   GET api/projects/:tags
-// @desc    Get all the projects by a tags search
+// @route   GET api/projects/match/:sponsorid
+// @desc    Get all the projects that match a sponsor's interests
 // @access  Public
-// router.get('/search/:querystring', async (req, res) => {
-// router.get('/sponsor/:userid', async (req, res) => {
-//   try {
-//     // pull data from search bar
-//     // ...
-//     const sponsor = await User.get({
-//       userid: req.params.userid,
-//     });
-//     // search DB for interests/tags/whatever else you can search against
-//     const projects = sponsor.interests.map((tagid)=>{
-//       return await Project.find({
-//         tag: tagid,
-//       }).sort({ date: -1 });
-//     });
+router.get('/match/:sponsorid', async (req, res) => {
+  try {
+    // get sponsor profile
+    const sponsor = await Sponsor.findOne({
+      user: req.params.sponsorid,
+    });
 
-//     const projects = await Project.find({
-//       tags: {$regex : qeurystring},
-//     }).sort({ date: -1 });
+    // destructure the interests from the profile
+    const { interests } = sponsor;
 
-//     // page that displays the results in the format you like
-//     projects.map((project) => {
-//       <h3>project.name</h3>
-//     });
+    // match the interests to the Project keywords
+    const projects = await Project.find({
+      keywords: { $in: interests },
+    }).sort({ date: -1 });
 
-//     if (!projects) {
-//       return res
-//         .status(404)
-//         .json({ msg: 'There are no projects that match these tags' });
-//     }
-//     res.json(projects);
-//   } catch (err) {
-//     console.error(err.message);
-//     if (err.kind === 'ObjectId') {
-//       return res.status(404).json({ msg: 'Projects not found' });
-//     }
-//     res.status(500).send('Server Error');
-//   }
-// });
+    if (!projects) {
+      return res
+        .status(404)
+        .json({ msg: 'There are no projects that match these tags' });
+    }
+    res.json(projects);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Projects not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
 
 // @route   DELETE api/projects/:id
 // @desc    Delete a project
