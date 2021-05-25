@@ -143,30 +143,6 @@ router.get('/sponsor/:sponsorid', async (req, res) => {
   }
 });
 
-// @route   GET api/projects/:tags
-// @desc    Get all the projects by a tags search
-// @access  Public
-// router.get('/user/:tags', async (req, res) => {
-//   try {
-//     const projects = await Project.find({
-//       tags: req.params.tags,
-//     }).sort({ date: -1 });
-
-//     if (!projects) {
-//       return res
-//         .status(404)
-//         .json({ msg: 'There are no projects that match these tags' });
-//     }
-//     res.json(projects);
-//   } catch (err) {
-//     console.error(err.message);
-//     if (err.kind === 'ObjectId') {
-//       return res.status(404).json({ msg: 'Projects not found' });
-//     }
-//     res.status(500).send('Server Error');
-//   }
-// });
-
 // @route   GET api/projects/match/:sponsorid
 // @desc    Get all the projects that match a sponsor's interests
 // @access  Public
@@ -189,6 +165,34 @@ router.get('/match/:sponsorid', async (req, res) => {
       return res
         .status(404)
         .json({ msg: 'There are no projects that match these tags' });
+    }
+    res.json(projects);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Projects not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/projects/search/:searchterms
+// @desc    Find projects by search keywords
+// @access  Public
+router.get('/search/search', async (req, res) => {
+  console.log('At the route');
+  try {
+    // match the interests to the Project keywords
+    let searchTerms = req.query.searchTerms.split(',');
+    console.log(searchTerms);
+    const projects = await Project.find({
+      keywords: { $in: searchTerms },
+    }).sort({ date: -1 });
+
+    if (!projects || projects.length === 0) {
+      return res
+        .status(404)
+        .json({ msg: 'There are no projects that match these keywords' });
     }
     res.json(projects);
   } catch (err) {

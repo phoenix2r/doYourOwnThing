@@ -4,6 +4,7 @@ import CreatableSelect from 'react-select/creatable';
 import { connect } from 'react-redux';
 import { setAlert } from '../../../actions/alert';
 import PropTypes from 'prop-types';
+import keywordsList from '../../../utils/keywordsList';
 
 const Pitcher5 = (props) => {
   const {
@@ -25,17 +26,6 @@ const Pitcher5 = (props) => {
     { id: 'sector', value: 'digital', label: 'digital' },
     { id: 'sector', value: 'creative arts', label: 'creative arts' },
     { id: 'sector', value: 'tutoring', label: 'tutoring' },
-  ];
-
-  const keywordsOptions = [
-    { id: 'keywords', value: 'community', label: 'community' },
-    { id: 'keywords', value: 'women', label: 'women' },
-    { id: 'keywords', value: 'asian', label: 'asian' },
-    { id: 'keywords', value: 'disabled', label: 'disabled' },
-    { id: 'keywords', value: 'elderly', label: 'metalwork' },
-    { id: 'keywords', value: 'environmental', label: 'environmental' },
-    { id: 'keywords', value: 'restorative', label: 'restorative' },
-    { id: 'keywords', value: 'LGBTQIA', label: 'LGBTQIA' },
   ];
 
   const customStyles = {
@@ -108,7 +98,7 @@ const Pitcher5 = (props) => {
           styles={customStyles}
           isMulti
           onChange={handleMultiSelectChange}
-          options={keywordsOptions}
+          options={keywordsList}
           className='basic-single'
           classNamePrefix='select'
           name='keywords'

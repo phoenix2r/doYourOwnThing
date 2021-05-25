@@ -21,6 +21,7 @@ const Pitcher1 = (props) => {
 
   // Functions to submit
   const submitUser = (e) => {
+    const role = 'pitcher';
     e.preventDefault();
     const validEmail = validateEmail(email);
     const validPassword = validatePassword(password);
@@ -96,7 +97,7 @@ const Pitcher1 = (props) => {
           defaultValue={password2}
         />
       </div>
-      <div className='form-group'>
+      {/* <div className='form-group'>
         <div className='role-check' onChange={handleChange('role')}>
           <label>
             Please confirm that you want to pitch rather than sponsor projects:
@@ -110,7 +111,7 @@ const Pitcher1 = (props) => {
             PITCH
           </p>
         </div>
-      </div>
+      </div> */}
       <div className='form-buttons'>
         <div className='btn btn-primary' onClick={submitUser}>
           Submit User

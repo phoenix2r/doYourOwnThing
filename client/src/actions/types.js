@@ -17,3 +17,5 @@ export const FIND_PROJECTS = 'FIND_PROJECTS';
 export const FIND_PROJECT = 'FIND_PROJECT';
 export const PROJECT_ERROR = 'PROJECT_ERROR';
 export const CLEAR_PROJECTS = 'CLEAR_PROJECTS';
+export const SEARCH_ERROR = 'SEARCH_ERROR';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';

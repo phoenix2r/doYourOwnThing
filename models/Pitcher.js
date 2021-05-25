@@ -3,43 +3,37 @@ const mongoose = require('mongoose');
 const PitcherSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
   fullName: {
     firstName: {
       type: String,
-      required: true
+      required: true,
     },
     lastName: {
       type: String,
-      required: true
+      required: true,
     },
   },
   address: {
     addressLine1: {
       type: String,
-      required: true
+      required: true,
     },
     town: {
-      type: String
+      type: String,
     },
     postcode: {
       type: String,
-      required: true
+      required: true,
     },
   },
+  profileImage: {
+    type: String,
+  },
   // Pitcher only
-  bankName: {
-    type: String
-  },
-  bankSortCode: {
-    type: Number
-  },
-  bankAcctNo: {
-    type: Number
-  },
   bio: {
-    type: String
+    type: String,
   },
   // List the Pitches associated with this profile
   // pitches: {

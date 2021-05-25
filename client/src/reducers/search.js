@@ -1,8 +1,8 @@
 import {
   FIND_PROJECTS,
   FIND_PROJECT,
-  PROJECT_ERROR,
-  CLEAR_PROJECTS,
+  SEARCH_ERROR,
+  CLEAR_SEARCH,
 } from '../actions/types';
 
 const initialState = {
@@ -28,17 +28,18 @@ export default function (state = initialState, action) {
         result: payload,
         loading: false,
       };
-    case PROJECT_ERROR:
+    case SEARCH_ERROR:
       return {
         ...state,
         error: payload,
         loading: false,
       };
-    case CLEAR_PROJECTS:
+    case CLEAR_SEARCH:
       return {
         ...state,
         results: initialState.results,
         result: initialState.result,
+        error: {},
       };
     default:
       return state;

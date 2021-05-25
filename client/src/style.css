@@ -892,6 +892,25 @@ input[type='radio'] {
   transform: scale(1);
 }
 
+#search {
+  margin-top: 4rem;
+  overflow: visible;
+}
+
+.search-box {
+  background-color: #f49800;
+  color: #fff;
+  margin: auto;
+  max-width: 500px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box .btn {
+  margin: 2rem auto;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
