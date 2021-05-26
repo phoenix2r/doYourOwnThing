@@ -40,6 +40,7 @@ const Pitcher = () => {
 
   const [stepCount, setStepCount] = useState({
     step: 1,
+    stepsFor: 'pitcher',
   });
 
   const [modalState, setModalState] = useState({
@@ -56,15 +57,8 @@ const Pitcher = () => {
 
   const { step } = stepCount;
   const { username, email, password, password2, role } = formData;
-  const {
-    user,
-    firstName,
-    lastName,
-    addressLine1,
-    town,
-    postcode,
-    bio,
-  } = formData;
+  const { user, firstName, lastName, addressLine1, town, postcode, bio } =
+    formData;
   const {
     projectAuthor,
     amountReq,
@@ -277,7 +271,7 @@ const Pitcher = () => {
       </div>
 
       <section className='progress-steps'>
-        <Stepindicator step={step} />
+        <Stepindicator step={step} stepsFor={stepCount.stepsFor} />
       </section>
     </section>
   );

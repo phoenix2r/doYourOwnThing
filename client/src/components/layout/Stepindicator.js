@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Stepindicator = ({ step }) => {
-  return (
+const Stepindicator = ({ step, stepsFor }) => {
+  console.log(stepsFor);
+  return stepsFor === 'pitcher' ? (
     <>
-      {/* <div className='step circle m-1'> */}
       <div
         className={
           step === 1 ? 'step active-step circle m-1' : 'step circle m-1'
@@ -110,6 +110,81 @@ const Stepindicator = ({ step }) => {
         <div className='step-content'>
           <i className='far fa-comment-alt'></i>
           <div className='step-title'>Funding</div>
+        </div>
+      </div>
+    </>
+  ) : (
+    <>
+      <div
+        className={
+          step === 1 ? 'step active-step circle m-1' : 'step circle m-1'
+        }
+      >
+        <div className='arrow'></div>
+        <p className='arrow-number'>1</p>
+        <div className='step-content'>
+          <i className='far fa-comment-alt'></i>
+          <div className='step-title'>Details</div>
+        </div>
+      </div>
+      <div
+        className={
+          step === 2 ? 'step active-step circle m-1' : 'step circle m-1'
+        }
+      >
+        <div className='arrow'></div>
+        <p className='arrow-number'>2</p>
+        <div className='step-content'>
+          <i className='far fa-comment-alt'></i>
+          <div className='step-title'>Interests</div>
+        </div>
+      </div>
+      <div
+        className={
+          step === 3 ? 'step active-step circle m-1' : 'step circle m-1'
+        }
+      >
+        <div className='arrow'></div>
+        <p className='arrow-number'>3</p>
+        <div className='step-content'>
+          <i className='far fa-comment-alt'></i>
+          <div className='step-title'>Business</div>
+        </div>
+      </div>
+      <div
+        className={
+          step === 4 ? 'step active-step circle m-1' : 'step circle m-1'
+        }
+      >
+        <div className='arrow'></div>
+        <p className='arrow-number'>4</p>
+        <div className='step-content'>
+          <i className='far fa-comment-alt'></i>
+          <div className='step-title'>You</div>
+        </div>
+      </div>
+      <div
+        className={
+          step === 5 ? 'step active-step circle m-1' : 'step circle m-1'
+        }
+      >
+        <div className='arrow'></div>
+        <p className='arrow-number'>5</p>
+        <div className='step-content'>
+          <i className='far fa-comment-alt'></i>
+          <div className='step-title'>Details</div>
+        </div>
+      </div>
+      <div
+        className={
+          step === 6 ? 'step active-step circle m-1' : 'step circle m-1'
+        }
+      >
+        <div className='arrow'></div>
+        <p className='arrow-number'>6</p>
+        <div className='step-content'>
+          <i className='far fa-comment-alt'></i>
+          <div className='step-title'>Visibility</div>
         </div>
       </div>
     </>
