@@ -56,7 +56,7 @@ const Signup = ({ source }) => {
   };
 
   return (
-    <div className='modal-container'>
+    <div className='signup-container'>
       <form className='form form-pitch p-4'>
         <h2 className='form-heading'>WHAT DO YOU WANT TO BE?</h2>
 
