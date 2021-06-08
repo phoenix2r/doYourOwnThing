@@ -15,18 +15,20 @@
   width: 100%;
   max-width: $max-width;
   margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
+  overflow: auto;
+  padding: 0;
   margin-bottom: 3rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
+  white-space: nowrap;
+  // display: flex;
+  // justify-content: flex-end;
+  // align-items: center;
+  // flex-wrap: wrap;
 
   .step {
     height: 5rem;
     width: 5rem;
     position: relative;
+    display: inline-block;
 
     .arrow {
       position: absolute;

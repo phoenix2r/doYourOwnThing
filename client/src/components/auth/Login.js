@@ -30,13 +30,14 @@ const Login = ({ login, isAuthenticated, user, clearProjects }) => {
 
   return (
     <section className='login'>
-      <div className='container'>
+      <div className='container login-container'>
         <div className='title'>
           <div className='title-box'></div>
           <div className='title-frame'></div>
           <div className='title-content'>
-            <h1 className='x-large-top'>SIGN IN</h1>
-            <h1 className='x-large-bottom'>PAGE</h1>
+            <h1 className='x-large-top'>
+              SIGN IN <span className='x-large-bottom'>PAGE</span>
+            </h1>
           </div>
         </div>
 
@@ -67,7 +68,7 @@ const Login = ({ login, isAuthenticated, user, clearProjects }) => {
           <h2 className='form-heading'>OR CREATE A NEW ACCOUNT</h2>
           <div className='buttons'>
             <div className='btn btn-primary'>
-              <Link to='/sponsor'>Create New Account</Link>
+              <Link to='/signup'>Create New Account</Link>
             </div>
           </div>
         </form>

@@ -10,6 +10,12 @@
   padding: 1rem;
 }
 
+@media (max-width: 500px) {
+  .p-1 {
+    padding: 1rem;
+  }
+}
+
 .py-1 {
   padding: 1rem 0;
 }
@@ -28,6 +34,12 @@
 
 .p-2 {
   padding: 2rem;
+}
+
+@media (max-width: 500px) {
+  .p-2 {
+    padding: 1rem;
+  }
 }
 
 .py-2 {
@@ -50,6 +62,12 @@
   padding: 3rem;
 }
 
+@media (max-width: 500px) {
+  .p-3 {
+    padding: 1rem;
+  }
+}
+
 .py-3 {
   padding: 3rem 0;
 }
@@ -70,6 +88,12 @@
   padding: 4rem;
 }
 
+@media (max-width: 500px) {
+  .p-4 {
+    padding: 1rem;
+  }
+}
+
 .py-4 {
   padding: 4rem 0;
 }
@@ -88,6 +112,12 @@
 
 .p-5 {
   padding: 5rem;
+}
+
+@media (max-width: 500px) {
+  .p-5 {
+    padding: 1rem;
+  }
 }
 
 .py-5 {
@@ -268,8 +298,8 @@ video {
 
 .form {
   color: #fff;
-  max-width: 75%;
-  margin: 4.5rem auto 1rem auto;
+  max-width: 100%;
+  margin: auto;
 }
 
 .form input.error {
@@ -302,6 +332,12 @@ video {
 .form h2 {
   font-size: 2rem;
   text-align: center;
+}
+
+@media (max-width: 500px) {
+  .form h2 {
+    font-size: 1.5rem;
+  }
 }
 
 .form input[type='text'],
@@ -451,19 +487,17 @@ input[type='radio'] {
   width: 100%;
   max-width: 1100px;
   margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
+  overflow: auto;
+  padding: 0;
   margin-bottom: 3rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .progress-steps .step {
   height: 5rem;
   width: 5rem;
   position: relative;
+  display: inline-block;
 }
 
 .progress-steps .step .arrow {
@@ -804,27 +838,56 @@ input[type='radio'] {
   height: 100vh;
 }
 
+.login-container {
+  margin-top: 4rem;
+  position: relative;
+  padding: 1rem;
+}
+
+@media (max-width: 500px) {
+  .login-container {
+    padding: 0;
+  }
+}
+
 .login .title {
-  position: absolute;
-  top: 80%;
-  left: -1rem;
   color: #fff;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 50%;
 }
 
 .login .title .title-content {
   background: #1fc0da;
   border: 3px solid #fff;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .login .title .title-content .x-large-bottom {
   font-size: 3rem;
+  margin-bottom: 0;
 }
 
 .login .title .title-content .x-large-top {
   font-size: 3rem;
-  text-align: right;
+  text-align: left;
   margin-bottom: 0;
+}
+
+@media (max-width: 950px) {
+  .login .title {
+    max-width: 100%;
+  }
+  .login .title .title-content .x-large-bottom {
+    font-size: 1.5rem;
+  }
+  .login .title .title-content .x-large-top {
+    font-size: 1.5rem;
+  }
+}
+
+.login .btn a {
+  color: #fff;
 }
 
 /* React-player styling */
@@ -958,8 +1021,7 @@ img {
 }
 
 .navbar h1 a img {
-  margin: 1.5rem;
-  max-height: 10rem;
+  max-height: 5rem;
   width: auto;
 }
 
@@ -975,6 +1037,67 @@ img {
 
 .navbar a:hover {
   color: #f49800;
+}
+
+.navbar .nav-burger {
+  display: none;
+  color: #1fc0da;
+  cursor: pointer;
+}
+
+.navbar .nav-burger:hover {
+  color: #f49800;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    height: 5rem;
+    align-items: center;
+  }
+  .navbar h1 a img {
+    max-height: 3rem;
+    margin-top: 0.5rem;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .navbar .nav-burger {
+    display: block;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1.2rem 3rem;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  top: 5rem;
+  background: #fff;
+}
+
+.mobile-nav ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.mobile-nav ul li {
+  margin: 1rem;
+  text-align: center;
+}
+
+.mobile-nav a {
+  color: #1fc0da;
+}
+
+.mobile-nav a:hover {
+  color: #f49800;
+  border-bottom: 2px solid #f49800;
 }
 
 .social-sidebar {
@@ -1001,6 +1124,12 @@ img {
 
 .social-sidebar i {
   color: #fff;
+}
+
+@media (max-width: 1160px) {
+  .social-sidebar {
+    display: none;
+  }
 }
 
 .landing {
@@ -1161,19 +1290,26 @@ footer .footer-social {
 
 #pitch {
   background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0)), url("./imgs/background1.jpg") no-repeat center center/cover;
-  height: 100vh;
+  background-attachment: fixed;
 }
 
 #pitch-journey {
-  margin: 4rem 0;
+  margin-top: 4rem;
   position: relative;
+  padding: 1rem;
+}
+
+@media (max-width: 500px) {
+  #pitch-journey {
+    padding: 0;
+  }
 }
 
 #pitch-journey .title {
-  position: absolute;
-  top: 80%;
-  left: -1rem;
   color: #fff;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 50%;
 }
 
 #pitch-journey .title .title-content {
@@ -1184,18 +1320,42 @@ footer .footer-social {
 
 #pitch-journey .title .title-content .x-large-bottom {
   font-size: 3rem;
+  margin-bottom: 0;
 }
 
 #pitch-journey .title .title-content .x-large-top {
   font-size: 3rem;
-  text-align: right;
+  text-align: left;
   margin-bottom: 0;
 }
 
+@media (max-width: 950px) {
+  #pitch-journey .title {
+    max-width: 100%;
+  }
+  #pitch-journey .title .title-content .x-large-bottom {
+    font-size: 1.5rem;
+  }
+  #pitch-journey .title .title-content .x-large-top {
+    font-size: 1.5rem;
+  }
+}
+
+#pitch-journey .journey-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  grid-gap: 1rem;
+}
+
+@media (max-width: 1150px) {
+  #pitch-journey .journey-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 #pitch-journey .video {
-  position: absolute;
-  top: 3%;
-  right: -1rem;
+  align-self: start;
   color: #fff;
   cursor: pointer;
 }
@@ -1207,6 +1367,7 @@ footer .footer-social {
 }
 
 #pitch-journey .video .video-content .x-large-bottom {
+  margin-top: 1rem;
   font-size: 3rem;
 }
 
@@ -1292,4 +1453,19 @@ footer .footer-social {
 
 .success-page .btn {
   border: 3px solid #fff;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }

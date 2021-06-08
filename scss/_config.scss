@@ -44,6 +44,10 @@ $spaceammounts: (1, 2, 3, 4, 5);
   // All around padding
   .p-#{$space} {
     padding: #{$space}rem;
+
+    @media (max-width: 500px) {
+      padding: #{$space/$space}rem;
+    }
   }
 
   // Vertical padding

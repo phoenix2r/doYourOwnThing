@@ -46,10 +46,6 @@ img {
   width: 100%;
 }
 
-// Logo
-#logo {
-}
-
 // Navbar
 .navbar {
   display: flex;
@@ -63,8 +59,8 @@ img {
   background: #fff;
 
   h1 a img {
-    margin: 1.5rem;
-    max-height: 10rem;
+    // margin: 1rem;
+    max-height: 5rem;
     width: auto;
   }
 
@@ -79,6 +75,69 @@ img {
 
     &:hover {
       color: $secondary-color;
+    }
+  }
+
+  .nav-burger {
+    display: none;
+    color: $primary-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  @media (max-width: 700px) {
+    height: 5rem;
+    align-items: center;
+
+    h1 a img {
+      max-height: 3rem;
+      margin-top: 0.5rem;
+    }
+
+    ul {
+      display: none;
+    }
+
+    .nav-burger {
+      display: block;
+    }
+  }
+}
+
+// Mobile Navbar styling
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1.2rem 3rem;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  top: 5rem;
+  background: #fff;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 auto;
+
+    li {
+      margin: 1rem;
+      text-align: center;
+    }
+  }
+
+  a {
+    color: $primary-color;
+
+    &:hover {
+      color: $secondary-color;
+      border-bottom: 2px solid $secondary-color;
     }
   }
 }
@@ -107,6 +166,10 @@ img {
 
   i {
     color: #fff;
+  }
+
+  @media (max-width: 1160px) {
+    display: none;
   }
 }
 
@@ -282,17 +345,25 @@ footer {
       rgba(255, 255, 255, 0)
     ),
     url('./imgs/background1.jpg') no-repeat center center/cover;
-  height: 100vh;
+  background-attachment: fixed;
 
   &-journey {
-    margin: 4rem 0;
+    margin-top: 4rem;
     position: relative;
+    padding: 1rem;
+
+    @media (max-width: 500px) {
+      padding: 0;
+    }
 
     .title {
-      position: absolute;
-      top: 80%;
-      left: -1rem;
+      // position: absolute;
+      // top: 80%;
+      // left: -1rem;
       color: #fff;
+      text-align: center;
+      margin: 1rem auto;
+      max-width: 50%;
 
       .title-content {
         background: $forhousing-blue;
@@ -300,19 +371,45 @@ footer {
         padding: 1rem;
         .x-large-bottom {
           font-size: 3rem;
+          margin-bottom: 0;
         }
         .x-large-top {
           font-size: 3rem;
-          text-align: right;
+          text-align: left;
           margin-bottom: 0;
+        }
+      }
+
+      @media (max-width: 950px) {
+        max-width: 100%;
+        .title-content {
+          .x-large-bottom {
+            font-size: 1.5rem;
+          }
+          .x-large-top {
+            font-size: 1.5rem;
+          }
         }
       }
     }
 
+    .journey-wrapper {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      align-items: center;
+      grid-gap: 1rem;
+
+      @media (max-width: 1150px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .video {
-      position: absolute;
-      top: 3%;
-      right: -1rem;
+      // grid-column: 4 / span 1;
+      align-self: start;
+      // position: absolute;
+      // top: 3%;
+      // right: -1rem;
       color: #fff;
       cursor: pointer;
 
@@ -321,6 +418,7 @@ footer {
         border: 3px solid #fff;
         padding: 1rem;
         .x-large-bottom {
+          margin-top: 1rem;
           font-size: 3rem;
         }
         .x-large-top {
@@ -411,4 +509,20 @@ footer {
   .btn {
     border: 3px solid #fff;
   }
+}
+
+// YouTube Embed Component styling
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }

@@ -11,6 +11,7 @@ import Pitcher9 from './pitcher/Pitcher9';
 import PitcherSuccess from './pitcher/PitcherSuccess';
 import Stepindicator from '../layout/Stepindicator';
 import VideoModal from '../modals/VideoModal';
+import YouTubeEmbed from '../layout/YouTubeEmbed';
 
 const Pitcher = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ const Pitcher = () => {
 
   const [modalState, setModalState] = useState({
     showModal: false,
-    videoUrl: '',
+    embedId: '',
   });
 
   const openModal = () => {
@@ -247,32 +248,36 @@ const Pitcher = () => {
             <div className='title-box'></div>
             <div className='title-frame'></div>
             <div className='title-content'>
-              <h1 className='x-large-bottom'>BECOME A</h1>
-              <h1 className='x-large-top'>PITCHER</h1>
+              <h1 className='x-large-bottom'>
+                BECOME A <span className='x-large-top'>PITCHER</span>
+              </h1>
+              {/* <h1 className='x-large-top'>PITCHER</h1> */}
             </div>
           </div>
+          <section className='progress-steps'>
+            <Stepindicator step={step} stepsFor={stepCount.stepsFor} />
+          </section>
 
-          {/* <!-- Video Help --> */}
-          <div className='video' onClick={openModal}>
-            <div className='video-box'></div>
-            <div className='video-frame'></div>
-            <div className='video-content'>
-              <h1 className='x-large-bottom'>VIDEO</h1>
-              <h1 className='x-large-top'>SUPPORT</h1>
+          <div className='journey-wrapper'>
+            {renderSwitch(values)}
+            {/* <!-- Video Help --> */}
+            <div className='video' onClick={openModal}>
+              <div className='video-box'></div>
+              <div className='video-frame'></div>
+              <div className='video-content'>
+                <YouTubeEmbed embedId='rokGy0huYEA' />
+                <h1 className='x-large-bottom'>VIDEO</h1>
+                <h1 className='x-large-top'>SUPPORT</h1>
+              </div>
             </div>
-          </div>
-          <VideoModal
-            showModal={modalState.showModal}
-            setShowModal={openModal}
-          />
 
-          {renderSwitch(values)}
+            <VideoModal
+              showModal={modalState.showModal}
+              setShowModal={openModal}
+            />
+          </div>
         </div>
       </div>
-
-      <section className='progress-steps'>
-        <Stepindicator step={step} stepsFor={stepCount.stepsFor} />
-      </section>
     </section>
   );
 };
