@@ -40,9 +40,9 @@ router.post(
     }
 
     try {
-      const user = await (await User.findById(req.user.id)).isSelected(
-        '-password'
-      );
+      const user = await (
+        await User.findById(req.user.id)
+      ).isSelected('-password');
 
       const newProject = new Project({
         projectAuthor: req.user.id,
@@ -180,7 +180,6 @@ router.get('/match/:sponsorid', async (req, res) => {
 // @desc    Find projects by search keywords
 // @access  Public
 router.get('/search/search', async (req, res) => {
-  console.log('At the route');
   try {
     // match the interests to the Project keywords
     let searchTerms = req.query.searchTerms.split(',');
@@ -193,6 +192,28 @@ router.get('/search/search', async (req, res) => {
       return res
         .status(404)
         .json({ msg: 'There are no projects that match these keywords' });
+    }
+    res.json(projects);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Projects not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/projects/latest
+// @desc    Find projects by search keywords
+// @access  Public
+router.get('/latest', async (req, res) => {
+  console.log('At the route');
+  try {
+    // get the latest projects
+    const projects = await Project.find().sort({ date: -1 }).limit(5);
+
+    if (!projects || projects.length === 0) {
+      return res.status(404).json({ msg: 'No projects to display' });
     }
     res.json(projects);
   } catch (err) {

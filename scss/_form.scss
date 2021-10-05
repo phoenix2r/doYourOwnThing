@@ -43,6 +43,7 @@
   input[type='text'],
   input[type='email'],
   input[type='password'],
+  input[type='number'],
   select,
   textarea {
     display: block;
@@ -56,6 +57,7 @@
     margin: auto;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
     .btn {
       min-width: 200px;

@@ -1,9 +1,9 @@
 // Dashboard styling
 .dashboard {
-  margin-top: 8rem;
+  margin-top: 5rem;
 
   .title-box {
-    margin: auto;
+    margin: 1rem auto;
     color: #fff;
     padding: 1rem;
   }
@@ -43,6 +43,20 @@
         font-weight: 400;
       }
     }
+
+    @media (max-width: 700px) {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .dashboard-menu {
+        text-align: center;
+
+        li {
+          display: inline-block;
+          margin: 0 1rem 0 0;
+        }
+      }
+    }
   }
 
   &-main-pitcher {
@@ -56,7 +70,11 @@
     }
   }
 
-  .btn-create {
+  .btn {
     margin: 1rem auto;
+
+    i {
+      margin-right: 1rem;
+    }
   }
 }

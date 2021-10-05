@@ -343,6 +343,7 @@ video {
 .form input[type='text'],
 .form input[type='email'],
 .form input[type='password'],
+.form input[type='number'],
 .form select,
 .form textarea {
   display: block;
@@ -355,6 +356,7 @@ video {
   margin: auto;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .form .form-buttons .btn {
@@ -579,10 +581,8 @@ input[type='radio'] {
 
 .project-single-video {
   margin: auto;
-}
-
-.project-single-video img {
-  max-width: 1024px;
+  width: 100%;
+  padding: 1rem;
 }
 
 .project-single-details {
@@ -669,11 +669,11 @@ input[type='radio'] {
 }
 
 .dashboard {
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 
 .dashboard .title-box {
-  margin: auto;
+  margin: 1rem auto;
   color: #fff;
   padding: 1rem;
 }
@@ -719,6 +719,20 @@ input[type='radio'] {
   font-weight: 400;
 }
 
+@media (max-width: 700px) {
+  .dashboard-head {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dashboard-head .dashboard-menu {
+    text-align: center;
+  }
+  .dashboard-head .dashboard-menu li {
+    display: inline-block;
+    margin: 0 1rem 0 0;
+  }
+}
+
 .dashboard-main-pitcher {
   margin-top: 1rem;
   border-top: solid 1px #f49800;
@@ -731,8 +745,12 @@ input[type='radio'] {
   padding: 1rem;
 }
 
-.dashboard .btn-create {
+.dashboard .btn {
   margin: 1rem auto;
+}
+
+.dashboard .btn i {
+  margin-right: 1rem;
 }
 
 .project-headline {
@@ -746,12 +764,18 @@ input[type='radio'] {
 
 .project-headline-headers {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 2fr 1fr 2fr;
   align-items: center;
 }
 
+@media (max-width: 700px) {
+  .project-headline-headers {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
 .project-headline-title {
-  grid-column: 1 / span 2;
   color: #f49800;
 }
 
@@ -763,8 +787,13 @@ input[type='radio'] {
 }
 
 .project-headline-created {
-  grid-column: 4 / span 2;
   text-align: end;
+}
+
+@media (max-width: 700px) {
+  .project-headline-created {
+    text-align: center;
+  }
 }
 
 .project-headline-progress {
@@ -785,6 +814,13 @@ input[type='radio'] {
 .project-headline-btns {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .project-headline-btns {
+    justify-content: center;
+  }
 }
 
 .project-headline-btns .btn-create {
@@ -1319,6 +1355,8 @@ footer .footer-social {
   margin-top: 4rem;
   position: relative;
   padding: 1rem;
+  height: 100vh;
+  overflow: scroll;
 }
 
 @media (max-width: 500px) {

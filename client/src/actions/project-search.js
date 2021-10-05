@@ -43,6 +43,23 @@ export const getProjectsBySearchTerms = (searchterms) => async (dispatch) => {
   }
 };
 
+// Get the latest projects
+export const getLatestProjects = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/projects/latest`);
+
+    dispatch({
+      type: FIND_PROJECTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: SEARCH_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
 // Clear search action to prep for new search and avoid key clashes
 export const clearSearch = () => async (dispatch) => {
   dispatch({

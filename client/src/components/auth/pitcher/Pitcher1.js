@@ -97,31 +97,15 @@ const Pitcher1 = (props) => {
           defaultValue={password2}
         />
       </div>
-      {/* <div className='form-group'>
-        <div className='role-check' onChange={handleChange('role')}>
-          <label>
-            Please confirm that you want to pitch rather than sponsor projects:
-          </label>
-          <p>
-            <input type='radio' value='sponsor' name='role' />
-            SPONSOR
-          </p>
-          <p>
-            <input type='radio' value='pitcher' name='role' />
-            PITCH
-          </p>
-        </div>
-      </div> */}
       <div className='form-buttons'>
-        <div className='btn btn-primary' onClick={submitUser}>
-          Submit User
-        </div>
         {isRegistered ? (
           <div className='btn btn-primary' onClick={submitStep}>
             Next Step
           </div>
         ) : (
-          ''
+          <div className='btn btn-primary' onClick={submitUser}>
+            Submit User
+          </div>
         )}
       </div>
     </form>

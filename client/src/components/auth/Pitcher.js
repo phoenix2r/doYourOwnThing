@@ -56,7 +56,7 @@ const Pitcher = () => {
     console.log(modalState.showModal);
   };
 
-  const { step } = stepCount;
+  const { step, stepsFor } = stepCount;
   const { username, email, password, password2, role } = formData;
   const { user, firstName, lastName, addressLine1, town, postcode, bio } =
     formData;
@@ -73,6 +73,7 @@ const Pitcher = () => {
   } = formData;
   const values = {
     step,
+    stepsFor,
     username,
     email,
     password,
@@ -98,18 +99,16 @@ const Pitcher = () => {
 
   // Proceed to the next step
   const nextStep = () => {
-    const { step } = stepCount;
-    setStepCount({
-      step: step + 1,
-    });
+    // const { step } = stepCount;
+    setStepCount({ ...stepCount, step: step + 1 });
+    console.log(stepCount);
   };
 
   // Go back to the previous step
   const prevStep = () => {
-    const { step } = stepCount;
-    setStepCount({
-      step: step - 1,
-    });
+    // const { step } = stepCount;
+    setStepCount({ ...stepCount, step: step - 1 });
+    console.log(stepCount);
   };
 
   // Handle standard form field changes
@@ -265,7 +264,7 @@ const Pitcher = () => {
               <div className='video-box'></div>
               <div className='video-frame'></div>
               <div className='video-content'>
-                <YouTubeEmbed embedId='rokGy0huYEA' />
+                <YouTubeEmbed embedId={'GfE3SZEnyD0'} />
                 <h1 className='x-large-bottom'>VIDEO</h1>
                 <h1 className='x-large-top'>SUPPORT</h1>
               </div>
